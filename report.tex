@@ -1,0 +1,72 @@
+\documentclass{layout/tudelft-report}
+
+%% Additional packages
+\usepackage{multirow} % Counterpart of multi columns
+\usepackage[final]{pdfpages} % Insert .pdf directly
+\usepackage{minted} % Insert Python files/snippets
+%\usepackage[none]{hyphenat} % Disables word breaking
+
+%% Additional commands
+\renewcommand{\deg}{°\xspace}
+
+%%%%% Begin of document %%%%%
+
+\begin{document}
+
+%% Roman numerals
+\frontmatter
+
+%% Defining the main parameters. Use \\ to line break if necessary.
+\title{A Title to the Report}
+\definecolor{color-title}{HTML}{4884d6} % Generally, prominent colour from cover image
+\subtitle{A Catchy Subtitle that \\ Grabs the Attention} % Two lines recommended
+\author{<Author>}
+\subject{AE<Number>: <Name>}
+\coverimage{layout/covers/cover2.jpg} % Recommended aspect ratio of 2:3 (portrait)
+
+\makecover
+
+\input{title}
+
+\input{preface}
+
+\input{summary}
+
+\tableofcontents
+
+%% List of abbreviations, symbols, figures and tables
+\input{nomenclature}
+\listoffigures
+\listoftables
+
+%% Arabic numerals
+\mainmatter
+
+\input{introduction}
+
+\input{chapter-2}
+
+\input{chapter-3}
+
+\input{chapter-4}
+
+%\input{chapter-5} % Create file to add
+
+\input{conclusion}
+
+%% Bibliography is numeric APA style
+\printbibliography[title=References] 
+\addcontentsline{toc}{chapter}{References}
+
+%% Using letters for chapters
+\appendix
+
+\input{appendix-a}
+
+\input{appendix-b}
+
+%\input{appendix-c} % Create file to add
+
+\input{taskdivision}
+
+\end{document}
