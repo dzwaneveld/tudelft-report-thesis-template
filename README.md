@@ -1,6 +1,10 @@
 # TU Delft - Unofficial Report Template (v1.2)
 This template aims to simplify and improve the (Xe)LaTeX template provided by the TU Delft. Major changes are a redesigned cover page and a rewritten class file for easier customization. This template is made with Aerospace Engineering in mind (i.e. the included .bib entries and images are aerospace related), but it can be used universally.
 
+## Usage
+
+This template requires XeLaTeX and uses BibLaTeX for the bibliography. If you would like to use it on [Overleaf](https://overleaf.com), download this project as a .zip file and create a new project > upload project. Make sure to change the the compiler to XeLaTeX.
+
 ## Cover
 
 Six high quality cover images related to Aerospace Engineering have been included in this template. Please make sure to appropriately credit the cover page if you decide to use one of them. A preview can be seen below. A list with the attributions and recommended title color can be found below, in order of appearance in the preview. The images can be found under `/layout/covers`.
@@ -33,3 +37,7 @@ Six high quality cover images related to Aerospace Engineering have been include
 |         | Added *xspace*, which automatically selects the appropriate spacing after the \\deg macro |
 | 1.2     | Minor adjustments to the class file |
 |         | Added more cover images. A detailed list with all attributions can be found under *Cover*. All images can be used and distributed freely if appropriate credit is given (all use a CC BY 2.0 license or similar) |
+
+## License 
+
+This template is available under CC BY-NC 4.0. For more information, see https://creativecommons.org/licenses/by-nc/4.0/. No attribution is required in reports created using this template.
