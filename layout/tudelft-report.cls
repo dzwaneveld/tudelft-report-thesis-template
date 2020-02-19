@@ -40,7 +40,7 @@
 \RequirePackage{xcolor}     % Using colours in documents
 \RequirePackage{tikz}       % Create graphic elements
 
-\RequirePackage[bibstyle=apa,citestyle=numeric,sorting=anyvt,doi=false]{biblatex} % Manages bibliography
+\RequirePackage{biblatex} % Manages bibliography
 \RequirePackage{datetime}   % Used in preface for month
 \RequirePackage{microtype}  % Refinements towards typographical perfection
 \RequirePackage[nottoc]{tocbibind} % Add the lists to the table of contents
@@ -72,7 +72,6 @@
 
 %% Further defining the bibliography
 \addbibresource{report.bib} % Specifying the .bib file
-\RequireBibliographyStyle{numeric} % Required for numeric style
 \setlength\bibitemsep{0.7\itemsep} % More spacing to improve readability
 
 %% Prevent urls running into margins in bibliography
@@ -98,7 +97,7 @@
 \def\largetitlestyle{\tudtitlefamily}
 \def\titlestyle{\normalfont}
 
-%% Changing the quote enviroment to use Georgia
+%% Changing the quote environment to use Georgia
 \AtBeginEnvironment{quote}{\quotefont}
 
 %%%%% Some Miscellaneous Settings with Layout/Consistency %%%%%
