@@ -13,7 +13,7 @@
 
 %% The class file is based on the default book class
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[05-02-2020 v1.2 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[22-05-2020 v1.2 TU Delft Report Class]
 \LoadClass[10pt,oneside]{book}
 
 %% Main packages in the document
@@ -176,9 +176,8 @@
 %% Fancy style for the main matter
 \fancypagestyle{mainmatter}{%
     \fancyhf{}
-    \fancyhead[R]{\titlestyle\@author~-~\@title}
-    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}
-    \fancyfoot[C]{\thepage}}
+    \fancyhead[R]{\thepage}
+    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}}
 
 \pagestyle{mainmatter} % Setting it to default
 
