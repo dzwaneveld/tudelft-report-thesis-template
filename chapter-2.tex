@@ -1,9 +1,11 @@
 \chapter{About the Template}
 \label{chapter:title}
 
+This template aims to simplify and improve the (Xe)\LaTeX~report template by Delft University of Technology. It features a redesigned cover page and a rewritten class file for easier customization. A list of the changes can be found below. If you encounter issues or have suggestions, let me know \underline{\href{https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/issues}{here}}. Visit \url{dzwaneveld.github.io/report} for the full documentation.
+
 \section{Changelog}
 
-This template aims to simplify and improve the \LaTeX~template provided by the TU Delft, which has not seen an update in quite some time. A list of the changes can be found below. If you encounter issues or have suggestions, let me know over WhatsApp or create an issue \underline{\href{https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/issues}{here}}.
+In the table below, the most notable changes can be found. Only major updates are tracked here. Minor updates only consist of small bug fixes.
 
 \begin{table}[h]
     \centering
@@ -13,31 +15,31 @@ This template aims to simplify and improve the \LaTeX~template provided by the T
         \midrule
         1.0 & • & Rewritten class file to improve readability and simplify modifications \\
         & • & Redesigned the cover page \\
-        \midrule 
-        1.1 & • & Minor adjustments to the class file \\
-        & • & Removed Natbib in favor of Bib\LaTeX. Adds more database entry types (e.g. @online) and other minor improvements. If you are using old websites entries, it is recommended to convert them, but it will work nonetheless. For a Bib\LaTeX~cheat sheet, see \url{http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf} \\
-        & • & Changed the font to Arial to be more in line with the TU Delft corporate design (see \url{https://www.tudelft.nl/en/tu-delft-corporate-design/}) \\
-        & • & Added \emph{booktabs} to improve customisability of tables (e.g. \textbackslash toprule, \textbackslash midrule, \textbackslash bottomrule) \\
-        & • & Fixed and added more book entries from 2nd year courses (e.g.  \cite{anderson-fundamentals-of-aerodynamics,megson-aircraft-structures}) \\
-        & • & Converted the nomenclature tables to longtables which will break automatically over the page \\
-        & • & Added xspace, which automatically selects the appropriate spacing after the \textbackslash deg macro (\deg) \\
         \midrule
-        1.2 & • & Minor adjustments to the class file \\
-        & • & Added more cover images. A detailed list with all attributions can be found on the next page. All images can be used and distributed freely if appropriate credit is given (all use a CC BY 2.0 license or similar) \\
+        1.1 & • & Removed Natbib in favor of BibLaTeX. Adds more database entry types (e.g. @online) and other minor improvements. If you are using old websites entries, it is recommended to convert them, but it will work nonetheless. Refer to \underline{\href{http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf\#subsubsection.2.1.1}{Section 2.1.1.}} of the documentation of BibLaTeX to learn more about the various default types and the fields accepted per type.\\
+        & • & Changed the font to Arial to be in line with the TU Delft corporate design \\
+        & • & Fixed and added more book entries from 2nd year courses (e.g. \cite{anderson-fundamentals-of-aerodynamics,megson-aircraft-structures}) \\
+        & • & Converted the nomenclature tables to longtables which will break automatically over the page \\
+        & • & Minor adjustments and fixes \\
+        \midrule
+        1.2 & • & Added more cover images. A detailed list with all attributions can be found on the next page. All images can be used and distributed freely if appropriate credit is given (all use a CC BY 2.0 license or similar) \\
+        & • & Minor adjustments and fixes \\
+        \midrule
+        1.3 & • & Added compatibility for pdfLaTeX, but a warning will be given as the fonts do not adhere to the TU Delft house style. The template now officially supports pdfLaTeX, XeLaTeX and LuaLaTeX \\
+        & • & Added support for oneside (default) and twoside global option. Changing to twoside can be done in the global options in report.tex, which results in minor changes the margins and headers. Furthermore, whitepages are added to resemble a printed (doublesided) book/report layout \\
+        & • & Minor adjustments and fixes \\
         \bottomrule
     \end{tabularx}
 \end{table}
 
-\noindent The updates in-between consist of minor bug fixes.
-
 \newpage
-\section{Credits to included images}
+\section{Credits to Included Images}
 
 Six high quality cover images related to Aerospace Engineering have been included in this template. Please make sure to appropriately credit the cover page if you decide to use one of them. A preview can be seen below. A list with the attributions and recommended title color can be found below, in order of appearance in the preview.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\linewidth]{layout/covers/Covers.jpg}
+    \includegraphics[width=0.75\linewidth]{figures/covers.jpg}
     \caption{Preview of the included cover images}
 \end{figure}
 
@@ -56,5 +58,3 @@ Six high quality cover images related to Aerospace Engineering have been include
     \item \textbf{cover5.jpg:} Aircraft Flying in the Sunset by Gerhard Gellinger
     \item \textbf{cover6.jpg:} F18 at Bodo Air Base Norway by Ministerio de Defensa España under CC BY-NC 2.0
 \end{itemize}
-
-\noindent In order to minimize the project size, the covers are imported from another project. In the unlikely case this features will no longer work as it does now, the images are also available \underline{\href{https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/tree/master/layout/covers}{here}}.
