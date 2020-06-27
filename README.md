@@ -13,7 +13,7 @@ Please visit dzwaneveld.github.io/report for the full documentation.
 Six high quality cover images related to Aerospace Engineering have been included in this template. Please make sure to appropriately credit the cover page if you decide to use one of them. A preview can be seen below. A list with the attributions and recommended title color can be found below, in order of appearance in the preview. The images can be found under `/layout/covers`.
 
 <p align="center">
-  <img align="centre"  src="https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/blob/master/layout/covers/covers.jpg" alt="" width="500" />
+  <img align="centre"  src="https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/blob/master/figures/covers.jpg" alt="" width="500" />
 </p>
 
 | File | Attribution | Source |
