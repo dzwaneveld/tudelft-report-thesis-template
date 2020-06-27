@@ -1,0 +1,17 @@
+# Ignoring all log files and output
+
+*.aux
+*.log
+*.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.lot
+*.out
+*.xml
+*.toc
+*.xdv
+report.pdf
