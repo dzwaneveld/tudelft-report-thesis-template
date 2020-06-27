@@ -6,7 +6,7 @@ This template aims to simplify and improve the LaTeX template provided by the TU
 
 This template works with pdfLaTeX, XeLaTeX and LuaLaTeX. In order to adhere to the TU Delft house style, either XeLaTeX or LuaLaTeX is required, as it supports TrueType and OpenType fonts. BibLaTeX is used for the bibliography with as backend biber.
 
-Please visit dzwaneveld.github.io/report for the full documentation.
+Please visit https://dzwaneveld.github.io/report for the full documentation.
 
 ## Cover
 
