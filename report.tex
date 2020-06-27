@@ -1,13 +1,12 @@
 \documentclass{layout/tudelft-report}
 
 %% Additional packages
-\usepackage{multirow} % Counterpart of multi columns
-\usepackage{pdfpages} % Insert .pdf directly
-%\usepackage{minted} % Displays code - use 'listings' if using offline without shell escape
+\usepackage{pdfpages} % Insert .pdf directly as pages
+%\usepackage{minted} % Display code - use 'listings' offline without shell escape
 %\usepackage[none]{hyphenat} % Disables word breaking
 
 %% Additional commands
-\renewcommand{\deg}{°\xspace}
+\renewcommand{\deg}{\si{\degree}\xspace}
 
 %%%%% Begin of document %%%%%
 
@@ -18,11 +17,12 @@
 
 %% Defining the main parameters. Use \\ to line break if necessary.
 \title{A Title to the Report}
-\definecolor{color-title}{HTML}{4884d6} % Generally, prominent colour from cover image
 \subtitle{A Catchy Subtitle that \\ Grabs the Attention} % Two lines recommended
-\author{<Author>}
-\subject{AE<Number>: <Name>}
-\coverimage{layout/covers/cover2.jpg} % Recommended aspect ratio of 2:3 (portrait)
+\author{Author}
+\subject{Course Code: Name}
+
+\coverimage{\includegraphics[width=\paperwidth]{figures/cover2.jpg}} % Recommended aspect ratio of 2:3 (portrait)
+\definecolor{title}{HTML}{4884d6} % Fitting color for the title
 
 \makecover
 
@@ -55,7 +55,7 @@
 \input{conclusion}
 
 %% Bibliography is numeric style
-\printbibliography[title=References] 
+\printbibliography[title=References]
 \addcontentsline{toc}{chapter}{References}
 
 %% Using letters for chapters

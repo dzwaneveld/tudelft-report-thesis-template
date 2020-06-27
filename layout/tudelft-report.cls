@@ -1,33 +1,34 @@
-% This class provides an unofficial alternative to the original TU Delft 
-% template for reports. Visual changes are relatively limited, but the 
-% template is simplified and improved with easier customization in mind.
+% This class provides an unofficial alternative to the original TU Delft
+% template for reports. It features a redesigned cover page and a
+% rewritten class file for easier customization.
 %
-% Rewritten template by Daan Zwaneveld. Original template by TU Delft 
+% Rewritten template by Daan Zwaneveld. Original template by TU Delft
 % (available here: https://www.tudelft.nl/huisstijl/downloads/).
-% 
+%
 % This template is available under CC BY-NC 4.0. For more information,
-% see https://creativecommons.org/licenses/by-nc/4.0/. No attribution 
+% see https://creativecommons.org/licenses/by-nc/4.0/. No attribution
 % is required in reports created using this template.
 
-%%%%% Setup - Construct the Class with Main Packages %%%%%
-
-%% The class file is based on the default book class
+%% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[22-05-2020 v1.2 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[27-06-2020 v1.3 TU Delft Report Class]
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
+\ProcessOptions\relax
 \LoadClass[10pt,oneside]{book}
 
 %% Main packages in the document
 \RequirePackage{amsmath}    % Mathematics
 \RequirePackage{amssymb}    % Symbols
-\RequirePackage{siunitx}    % More functions (e.g. \num{})
+\RequirePackage{siunitx}    % Various functions, e.g. \num{}
 
 \RequirePackage{tabularx}   % Additional functions to tables
 \RequirePackage{booktabs}   % Adds more line functionality to tables
 \RequirePackage{longtable}  % Lets tables break over page
+\RequirePackage{multirow}   % Counterpart of multi columns
 \RequirePackage{enumitem}   % Customise the list spacing
 
 \RequirePackage{geometry}   % Document geometry
-\RequirePackage{fontspec}   % Custom fonts
 \RequirePackage{titlesec}   % Custom titles
 \RequirePackage{titletoc}   % Custom table of contents
 \RequirePackage{fancyhdr}   % Custom header/footer
@@ -36,21 +37,17 @@
 \RequirePackage{graphicx}   % Adding images
 \RequirePackage{float}      % Additional float parameters
 \RequirePackage[labelfont=bf,justification=centering,footnotesize]{caption} % Captions
-\RequirePackage{subcaption} % More captions
+\RequirePackage{subcaption} % Subfigures and subcaptions
 \RequirePackage{xcolor}     % Using colours in documents
 \RequirePackage{tikz}       % Create graphic elements
 
-\RequirePackage{biblatex} % Manages bibliography
-\RequirePackage{datetime}   % Used in preface for month
+\RequirePackage{biblatex}   % Manages bibliography
+\RequirePackage{datetime}   % Used in preface for monthname
 \RequirePackage{microtype}  % Refinements towards typographical perfection
 \RequirePackage[nottoc]{tocbibind} % Add the lists to the table of contents
-\RequirePackage{xspace}     % Useful for spaces after defined macros like \deg
+\RequirePackage{xspace}     % Ensures correct spacing after macros like \deg
 
-%% All unknown options will be passed to the report class 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
-\ProcessOptions\relax
-
-%%%%% General Definitions for the Document %%%%%
+%%%%% 1. General Definitions for the Document and Bibliography %%%%%
 
 %% Commands to define the title, author, etc
 \renewcommand{\title}[1]{%
@@ -70,58 +67,64 @@
 \definecolor{tudelft-black}{cmyk}{0,0,0,1}
 \definecolor{tudelft-white}{cmyk}{0,0,0,0}
 
-%% Further defining the bibliography
-\addbibresource{report.bib} % Specifying the .bib file
-\setlength\bibitemsep{0.7\itemsep} % More spacing to improve readability
-
-%% Prevent urls running into margins in bibliography
-\setcounter{biburlnumpenalty}{7000} 
-\setcounter{biburllcpenalty}{7000} 
-\setcounter{biburlucpenalty}{7000}
-
-%%%%% Loading all the Fonts %%%%%
-
-%% Adding the various fonts
-\setmainfont{Arial}
-\setmathsf{Arial}
-\setmathtt{Arial}
-    
-\newfontfamily\tudtitlefamily[
-    Path = layout/tudelft/,
-    Extension = .ttf%,
-    ]{TUDelft-UltraLight}
-    
-\newfontfamily{\quotefont}{Georgia}
-
-%% Defining commands to be used in layout - slightly redundant, but can be used for global changes
-\def\largetitlestyle{\tudtitlefamily}
-\def\titlestyle{\normalfont}
-
-%% Changing the quote environment to use Georgia
-\AtBeginEnvironment{quote}{\quotefont}
-
-%%%%% Some Miscellaneous Settings with Layout/Consistency %%%%%
-
 %% Scaling the margins to be slightly smaller than default (.7)
 \geometry{a4paper,hscale=0.75,vscale=0.8}
 
-%% Setting up \autoref 
+%% Reducing white space in lists slightly (both enumerate and itemize)
+\setlist{itemsep=-2pt}
+
+%% Setting up \autoref to use uppercase
 \def\sectionautorefname{Section}
 \def\chapterautorefname{Chapter}
 \let\subsectionautorefname\sectionautorefname
 \let\subsubsectionautorefname\sectionautorefname
 
-%% Use the Tikz library positioning
-\usetikzlibrary{positioning}
+%% Adding bibliography file and adjusting spacing
+\addbibresource{report.bib} % Specifying the .bib file
+\setlength\bibitemsep{0.7\itemsep} % More spacing to improve readability
 
-%% Used in the preface when defining the date automatically
-\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+%% Prevent urls running into margins in bibliography
+\setcounter{biburlnumpenalty}{7000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{7000}
 
-%% Reducing white space in lists slightly
-\setenumerate{itemsep=-2pt}
-\setitemize{itemsep=-2pt}
+%%%%% 2. Loading all the Fonts (Supports pdfLaTeX, XeLaTeX and LuaLaTeX) %%%%%
 
-%%%%% Adjusting the Titles in Text and Table of Contents %%%%%
+\RequirePackage{iftex} % Adds if-else statements to support multiple compilers
+
+\ifPDFTeX
+    %% pdfLaTeX is only available for compatibility, but not recommended.
+    \RequirePackage[T1]{fontenc} % Fixes possible encoding issues
+
+    %% Defining commands to be used in layout
+    \renewcommand{\rmdefault}{phv}
+    \renewcommand{\sfdefault}{phv}
+    \def\largetitlestyle{}
+    \def\titlestyle{}
+
+    %% Warning when using pdfLaTeX
+    \@latex@warning@no@line{You are using pdfLaTeX as compiler. Consider changing the compiler to XeLaTeX or LuaLaTeX to adhere to the TU Delft house style}
+\else
+    %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used
+    \RequirePackage{fontspec} % Custom fonts
+
+    %% Adding the various fonts
+    \setmainfont{Arial}
+    \setmathsf{Arial}
+    \setmathtt{Arial}
+
+    \newfontfamily\tudtitlefamily[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
+    \newfontfamily\quotefont{Georgia}
+
+    %% Defining commands to be used in layout
+    \def\largetitlestyle{\tudtitlefamily}
+    \def\titlestyle{\normalfont}
+
+    %% Changing the quote environment to use Georgia
+    \AtBeginEnvironment{quote}{\quotefont}
+\fi
+
+%%%%% 3. Adjusting the Titles in Text and Table of Contents %%%%%
 
 %% Formatting chapter titles and spacing
 \titleformat{\chapter}[display]
@@ -160,7 +163,7 @@
 \dottedcontents{section}[3.8em]{\titlestyle}{2.3em}{8pt}
 \dottedcontents{subsection}[7em]{\titlestyle}{3.2em}{8pt}
 
-%%%%% Adjusting the Header and Footer %%%%%
+%%%%% 4. Adjusting the Header and Footer %%%%%
 
 %% Adding a head rule to pages
 \renewcommand*\headrule{%
@@ -173,40 +176,49 @@
     \renewcommand*\headrulewidth{0pt}
     \fancyfoot[C]{\thepage}}
 
-%% Fancy style for the main matter
-\fancypagestyle{mainmatter}{%
+%% Fancy style for the main matter, depends on oneside/twoside option
+\if@twoside%
     \fancyhf{}
-    \fancyhead[R]{\thepage}
-    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}}
+    \fancyhead[LE,RO]{\titlestyle\thepage}
+    \fancyhead[RE]{\titlestyle\nouppercase{\leftmark}}
+    \fancyhead[LO]{\titlestyle\nouppercase{\rightmark}}
+    \RequirePackage{emptypage} % Clears empty pages
+\else%
+    \fancyhf{}
+    \fancyhead[R]{\titlestyle\thepage}
+    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}
+\fi
 
-\pagestyle{mainmatter} % Setting it to default
+\pagestyle{fancy} % Setting it to default
 
-%%%%% Cover Page %%%%%
+%%%%% 5. Cover Page %%%%%
 
 \newcommand*\makecover{
     % Clearing the page and removing page number
     \clearpage
     \thispagestyle{empty}
-    
+
+    %% Use the Tikz library positioning
+    \usetikzlibrary{positioning}
+
     % Defining where everything needs to go
     \begin{tikzpicture}[overlay,remember picture]
-    
-    \node[above=0,inner sep=0] at (current page.south) {%
-        \includegraphics[width=\paperwidth]{\@cover@image}};
-    
-    \node[rotate=90,below right=4cm and .3cm] at (current page.west) {% 
+
+    \node[above=0,inner sep=0] at (current page.south) {\@cover@image};
+
+    \node[rotate=90,below right=4cm and .3cm] at (current page.west) {%
         \titlestyle\color{white} Delft University of Technology};
-    
+
     \node[above right=0.3cm and 0.6cm] at (current page.south west) {%
         \includegraphics[width=0.35\linewidth]{layout/tudelft/logo-white.pdf}};
-    
+
     \node[below=2cm,fill=tudelft-black,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
         \begin{minipage}{0.9\paperwidth}
-            \largetitlestyle\fontsize{50}{50}\selectfont\color{color-title}\@title \\[0.5ex] 
+            \largetitlestyle\fontsize{50}{50}\selectfont\color{title}\@title \\[0.5ex]
             \titlestyle\fontsize{22}{22}\selectfont\color{white}\@subtitle \\[2.5ex]
             \titlestyle\fontsize{22}{22}\selectfont\color{white}\@subject \\[0.5ex]
             \largetitlestyle\fontsize{24}{24}\selectfont\@author
         \end{minipage}};
-    
+
     \end{tikzpicture}
 }
