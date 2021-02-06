@@ -11,7 +11,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[27-06-2020 v1.3 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[06-02-2021 v1.3.1 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -46,6 +46,7 @@
 \RequirePackage{microtype}  % Refinements towards typographical perfection
 \RequirePackage[nottoc]{tocbibind} % Add the lists to the table of contents
 \RequirePackage{xspace}     % Ensures correct spacing after macros like \deg
+\RequirePackage{etoolbox}   % General toolbox (e.g. \ifdefvoid)
 
 %%%%% 1. General Definitions for the Document and Bibliography %%%%%
 
@@ -204,20 +205,20 @@
     % Defining where everything needs to go
     \begin{tikzpicture}[overlay,remember picture]
 
-    \node[above=0,inner sep=0] at (current page.south) {\@cover@image};
+    \node[above=0,inner sep=0] at (current page.south) {\includegraphics[width=\paperwidth]{\@cover@image}};
 
     \node[rotate=90,below right=4cm and .3cm] at (current page.west) {%
         \titlestyle\color{white} Delft University of Technology};
 
-    \node[above right=0.3cm and 0.6cm] at (current page.south west) {%
+    \node[above right=0.2cm and 0.6cm] at (current page.south west) {%
         \includegraphics[width=0.35\linewidth]{layout/tudelft/logo-white.pdf}};
 
     \node[below=2cm,fill=tudelft-black,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
         \begin{minipage}{0.9\paperwidth}
             \largetitlestyle\fontsize{50}{50}\selectfont\color{title}\@title \\[0.5ex]
-            \titlestyle\fontsize{22}{22}\selectfont\color{white}\@subtitle \\[2.5ex]
-            \titlestyle\fontsize{22}{22}\selectfont\color{white}\@subject \\[0.5ex]
-            \largetitlestyle\fontsize{24}{24}\selectfont\@author
+            \ifdefvoid{\@subtitle}{}{\titlestyle\fontsize{22}{22}\selectfont\color{white}\@subtitle \\[2.5ex]}
+            \ifdefvoid{\@subject}{}{\titlestyle\fontsize{22}{22}\selectfont\color{white}\@subject \\[0.5ex]}
+            \largetitlestyle\fontsize{24}{24}\selectfont\color{white}\@author
         \end{minipage}};
 
     \end{tikzpicture}

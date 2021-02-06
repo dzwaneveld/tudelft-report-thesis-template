@@ -1,6 +1,6 @@
-# TU Delft - Unofficial Report Template (v1.3)
+# TU Delft - Unofficial Report Template (v1.3.1)
 
-This template aims to simplify and improve the LaTeX template provided by the TU Delft, which has not seen an update in quite some time. It features a redesigned cover page and a rewritten class file for easier customization. This template is made with Aerospace Engineering in mind (i.e. the included .bib entries and images are aerospace related), but it can be used universally.
+This template aims to simplify and improve the LaTeX report template provided by the TU Delft. Besides featuring a redesigned cover page, the class file has been reduced by over 65% for easier customization. Although this template is made with Aerospace Engineering in mind (i.e. the included .bib entries and images are aerospace related), the general improvements are universal.
 
 ## Usage & Documentation
 
