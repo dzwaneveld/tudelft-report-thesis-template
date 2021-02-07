@@ -129,8 +129,8 @@
 
 %% Formatting chapter titles and spacing
 \titleformat{\chapter}[display]
-    {\flushright\largetitlestyle}
-    {\fontsize{96}{96}\selectfont\thechapter}
+    {\flushright}
+    {\fontsize{96}{96}\largetitlestyle\thechapter}
     {0pt}
     {\Huge\titlestyle}
 \titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
@@ -138,16 +138,16 @@
 %% Formatting section titles and spacing
 \titleformat{\section}
     {\Large\titlestyle\bfseries}
-    {\thesection.\ }
-    {0pt}
+    {\thesection.}
+    {5pt}
     {}
 \titlespacing*{\section}{0pt}{\baselineskip}{0pt}
 
 %% Formatting subsections titles and spacing
 \titleformat{\subsection}
     {\large\titlestyle\bfseries}
-    {\thesubsection.\ }
-    {0pt}
+    {\thesubsection.}
+    {5pt}
     {}
 \titlespacing*{\subsection}{0pt}{\baselineskip}{0pt}
 
