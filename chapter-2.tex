@@ -1,11 +1,11 @@
 \chapter{About the Template}
 \label{chapter:title}
 
-This template aims to simplify and improve the (Xe)\LaTeX~report template by Delft University of Technology. It features a redesigned cover page and a rewritten class file for easier customization. A list of the changes can be found below. If you encounter issues or have suggestions, let me know \underline{\href{https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/issues}{here}}. Visit \url{https://dzwaneveld.github.io/report} for the full documentation.
+This template aims to simplify and improve the (Xe)LaTeX template provided by the TU Delft. Major changes are a redesigned cover page and a rewritten class file for easier customization. Please refer to the documentation for more details: \url{https://dzwaneveld.github.io/report/}
 
 \section{Changelog}
 
-In the table below, the most notable changes can be found. Only major updates are tracked here. Minor updates only consist of small bug fixes.
+In the table below, the notable changes can be found. Only major updates are tracked here. Refer to the documentation for a full changelog.
 
 \begin{table}[h]
     \centering
@@ -13,21 +13,20 @@ In the table below, the most notable changes can be found. Only major updates ar
         \toprule
         Version & \multicolumn{2}{l}{Notable changes} \\
         \midrule
-        1.0 & • & Rewritten class file to improve readability and simplify modifications \\
+        1.0.0 & • & Rewritten class file to improve readability and simplify modifications \\
         & • & Redesigned the cover page \\
         \midrule
-        1.1 & • & Removed Natbib in favor of BibLaTeX. Adds more database entry types (e.g. @online) and other minor improvements. If you are using old websites entries, it is recommended to convert them, but it will work nonetheless. Refer to \underline{\href{http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf\#subsubsection.2.1.1}{Section 2.1.1.}} of the documentation of BibLaTeX to learn more about the various default types and the fields accepted per type.\\
+        1.1.0 & • & Removed Natbib in favor of BibLaTeX. Adds more database entry types (e.g. @online) and other minor improvements. Refer to \underline{\href{http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf\#subsubsection.2.1.1}{Section 2.1.1.}} of the documentation of BibLaTeX to learn more about the various default types and the fields accepted per type.\\
         & • & Changed the font to Arial to be in line with the TU Delft corporate design \\
         & • & Fixed and added more book entries from 2nd year courses (e.g. \cite{anderson-fundamentals-of-aerodynamics,megson-aircraft-structures}) \\
         & • & Converted the nomenclature tables to longtables which will break automatically over the page \\
-        & • & Minor adjustments and fixes \\
         \midrule
-        1.2 & • & Added more cover images. A detailed list with all attributions can be found on the next page. All images can be used and distributed freely if appropriate credit is given (all use a CC BY 2.0 license or similar) \\
-        & • & Minor adjustments and fixes \\
+        1.2.0 & • & Added more cover images. A detailed list with all attributions can be found on the next page. All images can be used and distributed freely if appropriate credit is given (all use a CC BY 2.0 license or similar) \\
         \midrule
-        1.3 & • & Added compatibility for pdfLaTeX, but a warning will be given as the fonts do not adhere to the TU Delft house style. The template now officially supports pdfLaTeX, XeLaTeX and LuaLaTeX \\
+        1.3.0 & • & Added compatibility for pdfLaTeX, but a warning will be given as the fonts do not adhere to the TU Delft house style. The template now officially supports pdfLaTeX, XeLaTeX and LuaLaTeX \\
         & • & Added support for oneside (default) and twoside global option. Changing to twoside can be done in the global options in report.tex, which results in minor changes the margins and headers. Furthermore, whitepages are added to resemble a printed (doublesided) book/report layout \\
-        & • & Minor adjustments and fixes \\
+        \midrule
+        1.4.0 & • & Added support for a table of authors on the cover by allowing an optional argument. Please refer to the documentation for more details \\
         \bottomrule
     \end{tabularx}
 \end{table}

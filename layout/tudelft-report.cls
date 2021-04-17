@@ -2,8 +2,8 @@
 % template for reports. It features a redesigned cover page and a
 % rewritten class file for easier customization.
 %
-% Rewritten template by Daan Zwaneveld. Original template by TU Delft
-% (available here: https://www.tudelft.nl/huisstijl/downloads/).
+% Rewritten template by Daan Zwaneveld (dzwaneveld.github.io). Original
+% template by TU Delft (https://www.tudelft.nl/huisstijl/downloads/).
 %
 % This template is available under CC BY-NC 4.0. For more information,
 % see https://creativecommons.org/licenses/by-nc/4.0/. No attribution
@@ -11,7 +11,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[06-02-2021 v1.3.1 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[17-04-2021 v1.4.0 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -53,11 +53,12 @@
 %% Commands to define the title, author, etc
 \renewcommand{\title}[1]{%
     \def\@title{#1}%
-    \hypersetup{pdftitle=#1}} % Adds it to metadata
+    \hypersetup{pdftitle=#1}} % Adding to metadata
 
-\renewcommand*\author[1]{%
-    \def\@author{#1}%
-    \hypersetup{pdfauthor=#1}} % Adds it to metadata
+\renewcommand*{\author}[2][]{%
+    \def\@author{#2}%
+    \def\@author@short{#1}%
+    \hypersetup{pdfauthor=\ifdefvoid{\@author@short}{#2}{#1}}} % Adding to metadata
 
 \newcommand*\subtitle[1]{\def\@subtitle{#1}}
 \newcommand*\coverimage[1]{\def\@cover@image{#1}}
@@ -80,9 +81,8 @@
 \let\subsectionautorefname\sectionautorefname
 \let\subsubsectionautorefname\sectionautorefname
 
-%% Adding bibliography file and adjusting spacing
-\addbibresource{report.bib} % Specifying the .bib file
-\setlength\bibitemsep{0.7\itemsep} % More spacing to improve readability
+%% Specifying the bibliography file
+\addbibresource{report.bib}
 
 %% Prevent urls running into margins in bibliography
 \setcounter{biburlnumpenalty}{7000}
@@ -130,7 +130,7 @@
 %% Formatting chapter titles and spacing
 \titleformat{\chapter}[display]
     {\flushright}
-    {\fontsize{96}{96}\largetitlestyle\thechapter}
+    {\fontsize{96}{96}\selectfont\largetitlestyle\thechapter}
     {0pt}
     {\Huge\titlestyle}
 \titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
@@ -222,4 +222,5 @@
         \end{minipage}};
 
     \end{tikzpicture}
+    \newpage
 }

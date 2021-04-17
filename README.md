@@ -1,10 +1,12 @@
-# TU Delft - Unofficial Report Template (v1.3.1)
+# TU Delft - Unofficial Report Template (v1.4.0)
 
-This template aims to simplify and improve the LaTeX report template provided by the TU Delft. Besides featuring a redesigned cover page, the class file has been reduced by over 65% for easier customization. Although this template is made with Aerospace Engineering in mind (i.e. the included .bib entries and images are aerospace related), the general improvements are universal.
+This template aims to simplify and improve the (Xe)LaTeX template provided by the TU Delft. Major changes are a redesigned cover page and a rewritten class file for easier customization. Some of the main features:
 
-## Usage & Documentation
+* **Quick Start:** Many common packages are included by default to get started immediately;
+* **Simple:** A class file that has been reduced by over 60% to simplify customization;
+* **Effortless:** Minor enhancements and features to keep focused on writing, such as a nomenclature that flows over page boundaries automatically.
 
-This template works with pdfLaTeX, XeLaTeX and LuaLaTeX. In order to adhere to the TU Delft house style, either XeLaTeX or LuaLaTeX is required, as it supports TrueType and OpenType fonts. BibLaTeX is used for the bibliography with as backend biber.
+This template works with _pdfLaTeX_, _XeLaTeX_ and _LuaLaTeX_. In order to adhere to the TU Delft house style, either _XeLaTeX_ or _LuaLaTeX_ is required, as it supports TrueType and OpenType fonts. _BibLaTeX_ is used for the bibliography with as backend _biber_.
 
 Please visit https://dzwaneveld.github.io/report for the full documentation.
 

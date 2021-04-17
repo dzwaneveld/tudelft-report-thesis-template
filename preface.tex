@@ -5,7 +5,7 @@ A preface.
 
 \begin{flushright}
 {\makeatletter\itshape
-    \@author \\
+    \ifdefvoid{\@author@short}{\@author}{\@author@short} \\
     Delft, \monthname{} \the\year{}
 \makeatother}
 \end{flushright}
