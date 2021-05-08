@@ -224,3 +224,37 @@
     \end{tikzpicture}
     \newpage
 }
+
+\makeatletter
+\let\hyperchapter\chapter
+\def\chapter{\@ifstar\starchapter\mychapter}
+\def\starchapter{\hyperchapter*}
+\newcommand{\mychapter}[2][\@empty]
+{\ifx#1\@empty \hyperchapter[#2]{\hyperlink{toc.chapter.\thechapter}{#2}}
+ \else \hyperchapter[#1]{\hyperlink{toc.chapter.\thechapter}{#2}}
+ \fi}
+
+\let\hypersection\section
+\def\section{\@ifstar\starsection\mysection}
+\def\starsection{\hypersection*}
+\newcommand{\mysection}[2][\@empty]
+{\ifx#1\@empty \hypersection[#2]{\hyperlink{toc.section.\thesection}{#2}}
+ \else \hypersecton[#1]{\hyperlink{toc.section.\thesection}{#2}}
+ \fi}
+ 
+\let\hypersubsection\subsection
+\def\subsection{\@ifstar\starsubsection\mysubsection}
+\def\starsubsection{\hypersubsection*}
+\newcommand{\mysubsection}[2][\@empty]
+{\ifx#1\@empty \hypersubsection[#2]{\hyperlink{toc.subsection.\thesubsection}{#2}}
+ \else \hypersecton[#1]{\hyperlink{toc.subsection.\thesubsection}{#2}}
+ \fi}
+ 
+\let\hypersubsubsection\subsubsection
+\def\subsubsection{\@ifstar\starsubsubsection\mysubsubsection}
+\def\starsubsubsection{\hypersubsubsection*}
+\newcommand{\mysubsubsection}[2][\@empty]
+{\ifx#1\@empty \hypersubsubsection[#2]{\hyperlink{toc.subsubsection.\thesubsubsection}{#2}}
+ \else \hypersecton[#1]{\hyperlink{toc.subsubsection.\thesubsubsection}{#2}}
+ \fi}
+\makeatother
