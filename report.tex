@@ -32,6 +32,8 @@
 
 \input{summary}
 
+\let\hypercontentsline=\contentsline
+\renewcommand{\contentsline}[4]{\hypertarget{toc.#4}{}\hypercontentsline{#1}{#2}{#3}{#4}}
 \tableofcontents
 
 %% List of abbreviations, symbols, figures and tables
