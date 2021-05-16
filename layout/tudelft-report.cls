@@ -11,7 +11,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[17-04-2021 v1.4.0 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[16-05-2021 v1.4.1 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -41,7 +41,7 @@
 \RequirePackage{xcolor}     % Using colours in documents
 \RequirePackage{tikz}       % Create graphic elements
 
-\RequirePackage{biblatex}   % Manages bibliography
+% -> BibLaTeX moved to report.tex ->
 \RequirePackage{datetime}   % Used in preface for monthname
 \RequirePackage{microtype}  % Refinements towards typographical perfection
 \RequirePackage[nottoc]{tocbibind} % Add the lists to the table of contents
@@ -80,14 +80,6 @@
 \def\chapterautorefname{Chapter}
 \let\subsectionautorefname\sectionautorefname
 \let\subsubsectionautorefname\sectionautorefname
-
-%% Specifying the bibliography file
-\addbibresource{report.bib}
-
-%% Prevent urls running into margins in bibliography
-\setcounter{biburlnumpenalty}{7000}
-\setcounter{biburllcpenalty}{7000}
-\setcounter{biburlucpenalty}{7000}
 
 %%%%% 2. Loading all the Fonts (Supports pdfLaTeX, XeLaTeX and LuaLaTeX) %%%%%
 

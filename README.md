@@ -1,4 +1,4 @@
-# TU Delft - Unofficial Report Template (v1.4.0)
+# TU Delft - Unofficial Report Template (v1.4.1)
 
 This template aims to simplify and improve the (Xe)LaTeX template provided by the TU Delft. Major changes are a redesigned cover page and a rewritten class file for easier customization. Some of the main features:
 

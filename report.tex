@@ -1,5 +1,9 @@
 \documentclass{layout/tudelft-report}
 
+%% Setting up the bibliography
+\usepackage{biblatex}
+\addbibresource{report.bib}
+
 %% Additional packages
 \usepackage{pdfpages} % Insert .pdf directly as pages
 %\usepackage{minted} % Display code - use 'listings' offline without shell escape
@@ -54,6 +58,10 @@
 
 \input{mainmatter/conclusion}
 
+%% Prevent urls running into margins in bibliography
+\setcounter{biburlnumpenalty}{7000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{7000}
 
 %% Bibliography is numeric style
 \printbibliography[title=References]
