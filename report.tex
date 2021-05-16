@@ -15,44 +15,45 @@
 %% Roman numerals
 \frontmatter
 
-%% Defining the main parameters. Use \\ to line break if necessary.
+%% Defining the main parameters
 \title{A Title to the Report}
 \subtitle{A Catchy Subtitle that \\ Grabs the Attention} % Two lines recommended
 \author{Author}
 \subject{AB1234: Course Name}
 
-\coverimage{figures/cover2.jpg} % Recommended aspect ratio of 2:3 (portrait)
-\definecolor{title}{HTML}{4884d6} % Fitting color for the title
+\coverimage{figures/cover2.jpg} % Aspect ratio of 2:3 (portrait) recommended
+\definecolor{title}{HTML}{4884d6} % Color for the title
 
 \makecover
 
-\input{title}
+\input{frontmatter/title}
 
-\input{preface}
+\input{frontmatter/preface}
 
-\input{summary}
+\input{frontmatter/summary}
 
 \tableofcontents
 
 %% List of abbreviations, symbols, figures and tables
-\input{nomenclature}
+\input{frontmatter/nomenclature}
 \listoffigures
 \listoftables
 
 %% Arabic numerals
 \mainmatter
 
-\input{introduction}
+\input{mainmatter/introduction}
 
-\input{chapter-2}
+\input{mainmatter/chapter-2}
 
-\input{chapter-3}
+\input{mainmatter/chapter-3}
 
-\input{chapter-4}
+\input{mainmatter/chapter-4}
 
-%\input{chapter-5} % Create file to add
+%\input{mainmatter/chapter-5} % Create file to add
 
-\input{conclusion}
+\input{mainmatter/conclusion}
+
 
 %% Bibliography is numeric style
 \printbibliography[title=References]
@@ -61,12 +62,12 @@
 %% Using letters for chapters
 \appendix
 
-\input{appendix-a}
+\input{appendix/appendix-a}
 
-\input{appendix-b}
+\input{appendix/appendix-b}
 
-%\input{appendix-c} % Create file to add
+%\input{appendix/appendix-c} % Create file to add
 
-\input{taskdivision}
+\input{appendix/taskdivision}
 
 \end{document}
