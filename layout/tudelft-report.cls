@@ -1,6 +1,6 @@
-% This class provides an unofficial alternative to the original TU Delft
-% template for reports. It features a redesigned cover page and a
-% rewritten class file for easier customization.
+% This template aims to simplify and improve the (Xe)LaTeX template
+% provided by the TU Delft. Major changes are a redesigned cover page
+% and a rewritten class file for easier customization.
 %
 % Rewritten template by Daan Zwaneveld (dzwaneveld.github.io). Original
 % template by TU Delft (https://www.tudelft.nl/huisstijl/downloads/).
@@ -11,7 +11,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[16-05-2021 v1.4.1 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[01-01-2022 v1.4.2 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -41,14 +41,13 @@
 \RequirePackage{xcolor}     % Using colours in documents
 \RequirePackage{tikz}       % Create graphic elements
 
-% -> BibLaTeX moved to report.tex ->
 \RequirePackage{datetime}   % Used in preface for monthname
 \RequirePackage{microtype}  % Refinements towards typographical perfection
 \RequirePackage[nottoc]{tocbibind} % Add the lists to the table of contents
 \RequirePackage{xspace}     % Ensures correct spacing after macros like \deg
 \RequirePackage{etoolbox}   % General toolbox (e.g. \ifdefvoid)
 
-%%%%% 1. General Definitions for the Document and Bibliography %%%%%
+%%%%% 1. General Definitions for the Document %%%%%
 
 %% Commands to define the title, author, etc
 \renewcommand{\title}[1]{%
@@ -63,11 +62,6 @@
 \newcommand*\subtitle[1]{\def\@subtitle{#1}}
 \newcommand*\coverimage[1]{\def\@cover@image{#1}}
 \newcommand\subject[1]{\def\@subject{#1}}
-
-%% Some of the TU Delft house style colours
-\definecolor{tudelft-cyan}{cmyk}{1,0,0,0}
-\definecolor{tudelft-black}{cmyk}{0,0,0,1}
-\definecolor{tudelft-white}{cmyk}{0,0,0,0}
 
 %% Scaling the margins to be slightly smaller than default (.7)
 \geometry{a4paper,hscale=0.75,vscale=0.8}
@@ -191,8 +185,9 @@
     \clearpage
     \thispagestyle{empty}
 
-    %% Use the Tikz library positioning
+    %% Use the Tikz library positioning and define TU Delft house style colour
     \usetikzlibrary{positioning}
+    \definecolor{tudelft-black}{cmyk}{0,0,0,1}
 
     % Defining where everything needs to go
     \begin{tikzpicture}[overlay,remember picture]

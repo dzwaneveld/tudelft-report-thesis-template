@@ -3,56 +3,22 @@
 
 This template aims to simplify and improve the (Xe)LaTeX template provided by the TU Delft. Major changes are a redesigned cover page and a rewritten class file for easier customization. Please refer to the documentation for more details: \url{https://dzwaneveld.github.io/report/}
 
-\section{Changelog}
+\section{Included Cover Images}
 
-In the table below, the notable changes can be found. Only major updates are tracked here. Refer to the documentation for a full changelog.
-
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{0.9\linewidth}{crX}
-        \toprule
-        Version & \multicolumn{2}{l}{Notable changes} \\
-        \midrule
-        1.0.0 & • & Rewritten class file to improve readability and simplify modifications \\
-        & • & Redesigned the cover page \\
-        \midrule
-        1.1.0 & • & Removed Natbib in favor of BibLaTeX. Adds more database entry types (e.g. @online) and other minor improvements. Refer to \underline{\href{http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf\#subsubsection.2.1.1}{Section 2.1.1.}} of the documentation of BibLaTeX to learn more about the various default types and the fields accepted per type.\\
-        & • & Changed the font to Arial to be in line with the TU Delft corporate design \\
-        & • & Fixed and added more book entries from 2nd year courses (e.g. \cite{anderson-fundamentals-of-aerodynamics,megson-aircraft-structures}) \\
-        & • & Converted the nomenclature tables to longtables which will break automatically over the page \\
-        \midrule
-        1.2.0 & • & Added more cover images. A detailed list with all attributions can be found on the next page. All images can be used and distributed freely if appropriate credit is given (all use a CC BY 2.0 license or similar) \\
-        \midrule
-        1.3.0 & • & Added compatibility for pdfLaTeX, but a warning will be given as the fonts do not adhere to the TU Delft house style. The template now officially supports pdfLaTeX, XeLaTeX and LuaLaTeX \\
-        & • & Added support for oneside (default) and twoside global option. Changing to twoside can be done in the global options in report.tex, which results in minor changes the margins and headers. Furthermore, whitepages are added to resemble a printed (doublesided) book/report layout \\
-        \midrule
-        1.4.0 & • & Added support for a table of authors on the cover by allowing an optional argument. Please refer to the documentation for more details \\
-        \bottomrule
-    \end{tabularx}
-\end{table}
-
-\newpage
-\section{Credits to Included Images}
-
-Six high quality cover images related to Aerospace Engineering have been included in this template. Please make sure to appropriately credit the cover page if you decide to use one of them. A preview can be seen below. A list with the attributions and recommended title color can be found below, in order of appearance in the preview.
+Six high quality cover images related to aerospace engineering have been included. Make sure to appropriately credit the image if you decide to use one of them. A preview can be seen below.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/covers.jpg}
+    \includegraphics[width=0.75\linewidth]{figures/covers.png}
     \caption{Preview of the included cover images}
 \end{figure}
 
-\noindent For the first three images, the title color `4884d6' is recommended:
+\noindent For the first three images, the title color `4884d6' is recommended. For fourth, the title color `fe860e' is recommended. For the final two, the title color `e3a01b' is recommended. A description with the attribution and license can be found on the next page.
 
 \begin{itemize}
     \item \textbf{cover1.jpg:} Storm Cell Over the Southern Appalachian Mountains by NASA/Stu Broce under CC BY 2.0
     \item \textbf{cover2.jpg:} Canadarm 2 Robotic Arm Grapples SpaceX Dragon by NASA under CC BY-NC 2.0 // Modified
     \item \textbf{cover3.jpg:} City Lights of Africa, Europe, and the Middle East by NASA Earth Observatory under CC BY 2.0
-\end{itemize}
-
-\noindent For fourth, the title color `fe860e' is recommended. For the final two, the title color `e3a01b' is recommended:
-
-\begin{itemize}
     \item \textbf{cover4.jpg:} Royal Air Force Voyager Transport Tanker Aircraft by Ministry of Defense/Cpl Ashley Keates under OGL v1.0
     \item \textbf{cover5.jpg:} Aircraft Flying in the Sunset by Gerhard Gellinger
     \item \textbf{cover6.jpg:} F18 at Bodo Air Base Norway by Ministerio de Defensa España under CC BY-NC 2.0

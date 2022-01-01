@@ -1,10 +1,10 @@
-# TU Delft - Unofficial Report Template (v1.4.1)
+# TU Delft - Unofficial Report Template (v1.4.2)
 
-This template aims to simplify and improve the (Xe)LaTeX template provided by the TU Delft. Major changes are a redesigned cover page and a rewritten class file for easier customization. Some of the main features:
+This template aims to simplify and improve the (Xe)LaTeX report template by Delft University of Technology. Some of the main features:
 
-* **Quick Start:** Many common packages are included by default to get started immediately;
-* **Simple:** A class file that has been reduced by over 60% to simplify customization;
-* **Effortless:** Minor enhancements and features to keep focused on writing, such as a nomenclature that flows over page boundaries automatically.
+* **Simplicity First:** A class file that has been reduced by over 60% to simplify customization;
+* **Effortless:** Many common packages are included to get started immediately;
+* **Complete:** Ready-to-go when it comes to file structure and files such as the nomenclature.
 
 This template works with _pdfLaTeX_, _XeLaTeX_ and _LuaLaTeX_. In order to adhere to the TU Delft house style, either _XeLaTeX_ or _LuaLaTeX_ is required, as it supports TrueType and OpenType fonts. _BibLaTeX_ is used for the bibliography with as backend _biber_.
 
@@ -12,11 +12,13 @@ Please visit https://dzwaneveld.github.io/report for the full documentation.
 
 ## Cover
 
-Six high quality cover images related to Aerospace Engineering have been included in this template. Please make sure to appropriately credit the cover page if you decide to use one of them. A preview can be seen below. A list with the attributions and recommended title color can be found below, in order of appearance in the preview. The images can be found under `/layout/covers`.
+Six high quality cover images related to aerospace engineering have been included. Make sure to appropriately credit the image if you decide to use one of them. A preview can be seen below.
 
 <p align="center">
-  <img align="centre"  src="https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/blob/master/figures/covers.jpg" alt="" width="500" />
+  <img align="centre"  src="https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/blob/master/figures/covers.png" alt="" width="500" />
 </p>
+
+A list with the attributions and recommended title color can be found below, in order of appearance in the preview. The images can be found under `/figures`.
 
 | File | Attribution | Source |
 |------|---------|------|
