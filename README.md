@@ -10,15 +10,13 @@ This template works with _pdfLaTeX_, _XeLaTeX_ and _LuaLaTeX_. In order to adher
 
 Please visit https://dzwaneveld.github.io/report for the full documentation.
 
-## Cover
-
-Six high quality cover images related to aerospace engineering have been included. Make sure to appropriately credit the image if you decide to use one of them. A preview can be seen below.
-
 <p align="center">
   <img align="centre"  src="https://github.com/dzwaneveld/TU-Delft-Unofficial-Report-Template/blob/master/figures/covers.png" alt="" width="500" />
 </p>
 
-A list with the attributions and recommended title color can be found below, in order of appearance in the preview. The images can be found under `/figures`.
+## Cover Image Attribution
+
+Six high quality cover images related to aerospace engineering have been included. Make sure to appropriately credit the image if you decide to use one of them. The list with the attributions can be found below. The images can be found under `/figures`.
 
 | File | Attribution | Source |
 |------|---------|------|
