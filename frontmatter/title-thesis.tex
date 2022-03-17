@@ -1,0 +1,77 @@
+\begin{titlepage}
+
+\begin{center}
+
+%% Print the title
+{\makeatletter
+\largetitlestyle\fontsize{45}{45}\selectfont\@title
+\makeatother}
+
+%% Print the subtitle
+{\makeatletter
+\ifdefvoid{\@subtitle}{}{\bigskip\fontsize{20}{20}\selectfont\@subtitle}
+\makeatother}
+
+\bigskip
+\bigskip
+
+by
+
+\bigskip
+\bigskip
+
+%% Print the name of the author
+{\makeatletter
+\largetitlestyle\fontsize{25}{25}\selectfont\@author
+\makeatother}
+
+\bigskip
+\bigskip
+
+to obtain the degree of Master of Science
+%ter verkrijging van de graad van Master of Science
+
+at the Delft University of Technology,
+%aan de Technische Universiteit Delft,
+
+to be defended publicly on Monday January 1, 2024 at 10:00 AM.
+%in het openbaar de verdedigen op maandag 1 januari om 10:00 uur.
+
+\vfill
+
+\begin{tabular}{lll}
+    Student number: & 1234567 \\
+    Project duration: & \multicolumn{2}{l}{March 1, 2023 -- January 1, 2024} \\
+    Thesis committee: & Prof.\ dr.\ ir.\ J.\ Doe, & TU Delft, supervisor \\
+        & Dr.\ E.\ L.\ Brown, & TU Delft \\
+        & Ir.\ A.\ Aaronson, & Acme Corporation
+\end{tabular}
+
+%% Only include the following 3 lines if confidentiality is applicable.
+\bigskip
+\bigskip
+\emph{This thesis is confidential and cannot be made public until December 31, 2024.}
+%\emph{Op dit verslag is geheimhouding van toepassing tot en met 31 december 2024.}
+
+\bigskip
+\bigskip
+\begin{tabular}{p{15mm}p{10cm}}
+    Cover: & Canadarm 2 Robotic Arm Grapples SpaceX Dragon by NASA under CC BY-NC 2.0 (Modified) \\
+    % Feel free to remove the following attribution, it is not required - still appreciated :-)
+    Style: & TU Delft Report Style, with modifications by Daan Zwaneveld
+\end{tabular}
+
+\bigskip
+\bigskip
+An electronic version of this thesis is available at \url{http://repository.tudelft.nl/}.
+
+\end{center}
+
+%% Insert the TU Delft logo at the bottom of the page
+\begin{tikzpicture}[remember picture, overlay]
+    \node[above=10mm] at (current page.south) {%
+        \includegraphics{layout/tudelft/logo-black}
+    };
+\end{tikzpicture}
+
+\end{titlepage}

@@ -4,57 +4,49 @@
 \usepackage{biblatex}
 \addbibresource{report.bib}
 
-%% Additional packages
-\usepackage{pdfpages} % Insert .pdf directly as pages
-%\usepackage{minted} % Display code - use 'listings' offline without shell escape
-%\usepackage[none]{hyphenat} % Disables word breaking
+%% Additional packages and commands
+\setlist{itemsep=-2pt} % Reducing white space in lists slightly
+\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
-%% Additional commands
-\renewcommand{\deg}{\si{\degree}\xspace}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% Begin of document %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-%% Roman numerals
+%% Roman page numbering
 \frontmatter
 
 %% Defining the main parameters
 \title{A Title to the Report}
-\subtitle{A Catchy Subtitle that \\ Grabs the Attention}
+\subtitle{A Catchy Optional Subtitle \\ that Grabs the Attention}
 \author{Author}
-\subject{AB1234: Course Name}
+\subject{AB1234: Optional Course Name}
+\affiliation{Delft University of Technology}
 
-\coverimage{figures/cover2.jpg} % Aspect ratio of 2:3 (portrait) recommended
-\definecolor{title}{HTML}{4884d6} % Color for the title
+\coverimage{figures/cover.jpg} % Aspect ratio of 2:3 (portrait) recommended
+\definecolor{title}{HTML}{4884d6} % Color for title
 
 \makecover
 
-\input{frontmatter/title}
-
+\input{frontmatter/title-report}
 \input{frontmatter/preface}
-
 \input{frontmatter/summary}
 
 \tableofcontents
+%\listoffigures
+%\listoftables
 
-%% List of abbreviations, symbols, figures and tables
 \input{frontmatter/nomenclature}
-\listoffigures
-\listoftables
 
-%% Arabic numerals
+%% Arabic page numbering
 \mainmatter
 
 \input{mainmatter/introduction}
 
 \input{mainmatter/chapter-2}
-
 \input{mainmatter/chapter-3}
-
-\input{mainmatter/chapter-4}
-
-%\input{mainmatter/chapter-5} % Create file to add
+%\input{mainmatter/chapter-4} % Create file to add
 
 \input{mainmatter/conclusion}
 
@@ -64,18 +56,13 @@
 \setcounter{biburlucpenalty}{7000}
 
 %% Add bibliography
-\printbibliography[title=References]
-\addcontentsline{toc}{chapter}{References}
+\printbibliography[heading=bibintoc,title=References]
 
-%% Using letters for chapters
+%% Letters for chapters
 \appendix
 
 \input{appendix/appendix-a}
-
 \input{appendix/appendix-b}
-
 %\input{appendix/appendix-c} % Create file to add
-
-\input{appendix/taskdivision}
 
 \end{document}

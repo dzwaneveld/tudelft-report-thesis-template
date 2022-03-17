@@ -1,0 +1,67 @@
+\begin{titlepage}
+
+\begin{center}
+
+%% Print the title
+{\makeatletter
+\largetitlestyle\fontsize{45}{45}\selectfont\@title
+\makeatother}
+
+%% Print the subtitle
+{\makeatletter
+\ifdefvoid{\@subtitle}{}{\bigskip\fontsize{20}{20}\selectfont\@subtitle}
+\makeatother}
+
+\bigskip
+\bigskip
+
+by
+
+\bigskip
+\bigskip
+
+%% Print the name of the author
+{\makeatletter
+\largetitlestyle\fontsize{25}{25}\selectfont\@author
+\makeatother}
+
+\bigskip
+\bigskip
+
+%% Print table with names and student numbers
+\setlength\extrarowheight{2pt}
+\begin{tabular}{lc}
+    Student Name & Student Number \\\midrule
+    First Surname & 1234567 \\
+\end{tabular}
+
+\vfill
+
+%% Print some more information at the bottom
+\begin{tabular}{ll}
+    Instructor: & I. Surname \\
+    Teaching Assistant: & I. Surname \\
+    Project Duration: & Month, Year - Month, Year \\
+    Faculty: & Faculty of Aerospace Engineering, Delft
+\end{tabular}
+
+\bigskip
+\bigskip
+
+%% Add a source and description for the cover and optional attribution for the template
+\begin{tabular}{p{15mm}p{10cm}}
+    Cover: & Canadarm 2 Robotic Arm Grapples SpaceX Dragon by NASA under CC BY-NC 2.0 (Modified) \\
+    % Feel free to remove the following attribution, it is not required - still appreciated :-)
+    Style: & TU Delft Report Style, with modifications by Daan Zwaneveld
+\end{tabular}
+
+\end{center}
+
+%% Insert the TU Delft logo at the bottom of the page
+\begin{tikzpicture}[remember picture, overlay]
+    \node[above=10mm] at (current page.south) {%
+        \includegraphics{layout/tudelft/logo-black}
+    };
+\end{tikzpicture}
+
+\end{titlepage}

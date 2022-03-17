@@ -1,129 +1,107 @@
 % This template aims to simplify and improve the (Xe)LaTeX template
-% provided by the TU Delft. Major changes are a redesigned cover page
-% and a rewritten class file for easier customization.
-%
-% Rewritten template by Daan Zwaneveld (dzwaneveld.github.io). Original
-% template by TU Delft (https://www.tudelft.nl/huisstijl/downloads/).
+% provided by the TU Delft. Original template by TU Delft. Rewritten
+% template by Daan Zwaneveld (https://dzwaneveld.github.io)
 %
 % This template is available under CC BY-NC 4.0. For more information,
 % see https://creativecommons.org/licenses/by-nc/4.0/. No attribution
-% is required in reports created using this template.
+% is required in reports/theses created using this template.
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[01-01-2022 v1.4.2 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[17-03-2022 v1.5 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 \LoadClass[10pt,oneside]{book}
 
-%% Main packages in the document
-\RequirePackage{amsmath}    % Mathematics
-\RequirePackage{amssymb}    % Symbols
-\RequirePackage{siunitx}    % Various functions, e.g. \num{}
+%% Main packages in the document --- Some are imported later in the class file
+\RequirePackage{mathtools}  % Mathematical tools to use with amsmath
+\RequirePackage{amssymb}    % Extended symbol collection
+\RequirePackage{siunitx}    % Comprehensive (SI) units package
 
-\RequirePackage{tabularx}   % Additional functions to tables
-\RequirePackage{booktabs}   % Adds more line functionality to tables
-\RequirePackage{longtable}  % Lets tables break over page
-\RequirePackage{multirow}   % Counterpart of multi columns
-\RequirePackage{enumitem}   % Customise the list spacing
+\RequirePackage{tabularx}   % Tabulars with adjustable-width columns
+\RequirePackage{booktabs}   % Publication quality tables
+\RequirePackage{longtable}  % Allow tables to flow over page boundaries
+\RequirePackage{multirow}   % Create tabular cells spanning multiple rows
 
-\RequirePackage{geometry}   % Document geometry
-\RequirePackage{titlesec}   % Custom titles
-\RequirePackage{titletoc}   % Custom table of contents
-\RequirePackage{fancyhdr}   % Custom header/footer
-\RequirePackage[hidelinks]{hyperref} % Improved referencing/links
-
-\RequirePackage{graphicx}   % Adding images
-\RequirePackage{float}      % Additional float parameters
+\RequirePackage{graphicx}   % Enhanced support for images
+\RequirePackage{float}      % Improved interface for floating objects
 \RequirePackage[labelfont=bf,justification=centering,footnotesize]{caption} % Captions
-\RequirePackage{subcaption} % Subfigures and subcaptions
-\RequirePackage{xcolor}     % Using colours in documents
-\RequirePackage{tikz}       % Create graphic elements
+\RequirePackage{subcaption} % Support for sub-captions
+\RequirePackage{pdfpages}   % Include PDF documents
 
-\RequirePackage{datetime}   % Used in preface for monthname
+\RequirePackage[pdfusetitle,hidelinks]{hyperref} % Extensive support for hypertext
+\RequirePackage[noabbrev,nameinlink,]{cleveref} % Intelligent cross-referencing
+\RequirePackage{xcolor}     % Driver-independent color extensions
+\RequirePackage{tikz}       % Create PostScript and PDF graphics
+\RequirePackage{xspace}     % Define commands that appear not to eat spaces
 \RequirePackage{microtype}  % Refinements towards typographical perfection
-\RequirePackage[nottoc]{tocbibind} % Add the lists to the table of contents
-\RequirePackage{xspace}     % Ensures correct spacing after macros like \deg
-\RequirePackage{etoolbox}   % General toolbox (e.g. \ifdefvoid)
 
-%%%%% 1. General Definitions for the Document %%%%%
+\RequirePackage{geometry}   % Customize document dimensions
+\RequirePackage{titlesec}   % Select alternative section titles
+\RequirePackage{titletoc}   % Alternative headings for toc
+\RequirePackage{fancyhdr}   % Control of page headers and footers
+\RequirePackage{enumitem}   % Control layout of itemize, enumerate, description
+\RequirePackage{etoolbox}   % Toolbox of programming facilities
+\RequirePackage{iftex}      % Adds if-else statements to support multiple compilers
+\RequirePackage{datetime}   % Change format of \today
 
-%% Commands to define the title, author, etc
-\renewcommand{\title}[1]{%
-    \def\@title{#1}%
-    \hypersetup{pdftitle=#1}} % Adding to metadata
-
-\renewcommand*{\author}[2][]{%
-    \def\@author{#2}%
-    \def\@author@short{#1}%
-    \hypersetup{pdfauthor=\ifdefvoid{\@author@short}{#2}{#1}}} % Adding to metadata
-
+%% Defining commands for the cover image, subtitle, subject, affiliation and table of authors
 \newcommand*\subtitle[1]{\def\@subtitle{#1}}
-\newcommand*\coverimage[1]{\def\@cover@image{#1}}
-\newcommand\subject[1]{\def\@subject{#1}}
+\newcommand*\subject[1]{\def\@subject{#1}}
+\newcommand*\affiliation[1]{\def\@affiliation{#1}}
+\newcommand*\coverimage[1]{\def\@coverimage{#1}}
+\newcommand*\covertable[1]{\def\@covertable{#1}}
 
 %% Scaling the margins to be slightly smaller than default (.7)
 \geometry{a4paper,hscale=0.75,vscale=0.8}
 
-%% Reducing white space in lists slightly (both enumerate and itemize)
-\setlist{itemsep=-2pt}
-
-%% Setting up \autoref to use uppercase
-\def\sectionautorefname{Section}
-\def\chapterautorefname{Chapter}
-\let\subsectionautorefname\sectionautorefname
-\let\subsubsectionautorefname\sectionautorefname
-
-%%%%% 2. Loading all the Fonts (Supports pdfLaTeX, XeLaTeX and LuaLaTeX) %%%%%
-
-\RequirePackage{iftex} % Adds if-else statements to support multiple compilers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% I. Loading the fonts %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifPDFTeX
-    %% pdfLaTeX is only available for compatibility, but not recommended.
-    \RequirePackage[T1]{fontenc} % Fixes possible encoding issues
+    %% pdfLaTeX is available for compatibility and uses a Paletino-like font
+    \RequirePackage[T1]{fontenc}  % Selecting T1 font encoding
+    \RequirePackage{newpxtext}    % Palatino-like font...
+    \RequirePackage{newpxmath}    % ...with support for mathematics
 
-    %% Defining commands to be used in layout
-    \renewcommand{\rmdefault}{phv}
-    \renewcommand{\sfdefault}{phv}
-    \def\largetitlestyle{}
-    \def\titlestyle{}
+    %% Another font can be used as the large title style font if desired
+    \def\largetitlestyle{\normalfont}
 
     %% Warning when using pdfLaTeX
-    \@latex@warning@no@line{You are using pdfLaTeX as compiler. Consider changing the compiler to XeLaTeX or LuaLaTeX to adhere to the TU Delft house style}
+    \@latex@warning@no@line{You are using pdfLaTeX as the compiler. You can safely ignore this warning or consider changing the compiler to XeLaTeX or LuaLaTeX to adhere to the TU Delft house style.}
 \else
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used
-    \RequirePackage{fontspec} % Custom fonts
+    \RequirePackage{fontspec} % Advanced font selection
 
-    %% Adding the various fonts
+    %% Adding Arial as the main font and TU Delft Ultralight and Georgia as supplementary fonts
     \setmainfont{Arial}
     \setmathsf{Arial}
     \setmathtt{Arial}
 
-    \newfontfamily\tudtitlefamily[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
+    \newfontfamily\largetitlestyle[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
     \newfontfamily\quotefont{Georgia}
-
-    %% Defining commands to be used in layout
-    \def\largetitlestyle{\tudtitlefamily}
-    \def\titlestyle{\normalfont}
 
     %% Changing the quote environment to use Georgia
     \AtBeginEnvironment{quote}{\quotefont}
 \fi
 
-%%%%% 3. Adjusting the Titles in Text and Table of Contents %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% II. Adjusting the layout of the titles in the text and table of contents %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Formatting chapter titles and spacing
 \titleformat{\chapter}[display]
     {\flushright}
     {\fontsize{96}{96}\selectfont\largetitlestyle\thechapter}
     {0pt}
-    {\Huge\titlestyle}
+    {\Huge}
 \titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
 
 %% Formatting section titles and spacing
 \titleformat{\section}
-    {\Large\titlestyle\bfseries}
+    {\Large\bfseries}
     {\thesection.}
     {5pt}
     {}
@@ -131,7 +109,7 @@
 
 %% Formatting subsections titles and spacing
 \titleformat{\subsection}
-    {\large\titlestyle\bfseries}
+    {\large\bfseries}
     {\thesubsection.}
     {5pt}
     {}
@@ -139,75 +117,80 @@
 
 %% Formatting subsubsections titles and spacing
 \titleformat{\subsubsection}
-    {\titlestyle\bfseries}
+    {\bfseries}
     {}
     {0pt}
     {}
 \titlespacing*{\subsubsection}{0pt}{\bigskipamount}{0pt}
 
-%% Changing font and spacing in the table of contents
-\dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\titlestyle\bfseries}{1.5em}{0pc}
-\dottedcontents{section}[3.8em]{\titlestyle}{2.3em}{8pt}
-\dottedcontents{subsection}[7em]{\titlestyle}{3.2em}{8pt}
+%% Reducing the vertical white space between chapters in the table of contents
+\dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\bfseries}{1.5em}{0pc}
 
-%%%%% 4. Adjusting the Header and Footer %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% III. Adjusting the header and footer %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Adding a head rule to pages
-\renewcommand*\headrule{%
-    {\hrule\@height\headrulewidth\@width\headwidth}%
-    \vskip-\headrulewidth}
-
-%% Page style for title pages
-\fancypagestyle{plain}{%
+%% Change the header and footer of pages where chapters do not start (depends on twoside option)
+\if@twoside
     \fancyhf{}
-    \renewcommand*\headrulewidth{0pt}
-    \fancyfoot[C]{\thepage}}
-
-%% Fancy style for the main matter, depends on oneside/twoside option
-\if@twoside%
+    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RE]{\nouppercase{\leftmark}}
+    \fancyhead[LO]{\nouppercase{\rightmark}}
+    \RequirePackage{emptypage} % Remove header and footer on empty pages
+\else
     \fancyhf{}
-    \fancyhead[LE,RO]{\titlestyle\thepage}
-    \fancyhead[RE]{\titlestyle\nouppercase{\leftmark}}
-    \fancyhead[LO]{\titlestyle\nouppercase{\rightmark}}
-    \RequirePackage{emptypage} % Clears empty pages
-\else%
-    \fancyhf{}
-    \fancyhead[R]{\titlestyle\thepage}
-    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}
+    \fancyhead[R]{\thepage}
+    \fancyhead[L]{\nouppercase{\rightmark}}
 \fi
 
-\pagestyle{fancy} % Setting it to default
+\pagestyle{fancy} % Setting the package defaults and the additional changes as the style
 
-%%%%% 5. Cover Page %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% IV. Creating the cover page %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*\makecover{
-    % Clearing the page and removing page number
-    \clearpage
+    %% Use the Tikz library positioning and clear the page header and footer
+    \usetikzlibrary{positioning}
     \thispagestyle{empty}
 
-    %% Use the Tikz library positioning and define TU Delft house style colour
-    \usetikzlibrary{positioning}
-    \definecolor{tudelft-black}{cmyk}{0,0,0,1}
-
-    % Defining where everything needs to go
+    %% Constructing the cover page (cover image, name of university, logo and title text respectively)
     \begin{tikzpicture}[overlay,remember picture]
 
-    \node[above=0,inner sep=0] at (current page.south) {\includegraphics[width=\paperwidth]{\@cover@image}};
+    \node[above=0,inner sep=0] at (current page.south) {\includegraphics[width=\paperwidth]{\@coverimage}};
 
-    \node[rotate=90,below right=4cm and .3cm] at (current page.west) {%
-        \titlestyle\color{white} Delft University of Technology};
+    \node[rotate=90,below right=40mm and 3mm] at (current page.west) {\ifdefvoid{\@affiliation}{}{\color{white}\@affiliation}};
 
-    \node[above right=0.2cm and 0.6cm] at (current page.south west) {%
+    \node[above right=10mm] at (current page.south west) {%
         \includegraphics[width=0.35\linewidth]{layout/tudelft/logo-white.pdf}};
 
-    \node[below=2cm,fill=tudelft-black,minimum width={\paperwidth},inner ysep=25pt,opacity=0.7,text opacity=1] at (current page.north) {%
+    \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
         \begin{minipage}{0.9\paperwidth}
             \largetitlestyle\fontsize{50}{50}\selectfont\color{title}\@title \\[0.5ex]
-            \ifdefvoid{\@subtitle}{}{\titlestyle\fontsize{22}{22}\selectfont\color{white}\@subtitle \\[2.5ex]}
-            \ifdefvoid{\@subject}{}{\titlestyle\fontsize{22}{22}\selectfont\color{white}\@subject \\[0.5ex]}
-            \largetitlestyle\fontsize{24}{24}\selectfont\color{white}\@author
+            \color{white}\normalfont\fontsize{22}{22}\selectfont%
+            \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
+            \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}
+            \largetitlestyle\fontsize{24}{24}\selectfont\ifdefvoid{\@covertable}{\@author}{\@covertable}
         \end{minipage}};
 
     \end{tikzpicture}
     \newpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% V. Setting up listings %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{listings} % Typeset source code listings
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,  % Style of the font that is used for the code
+  backgroundcolor=\color{gray!10},    % Background color
+  keywordstyle=\color{red!75!black},  % Keyword style
+  stringstyle=\color{green!40!black}, % String style
+  commentstyle=\color{blue!30!black}, % Comment style
+  numbers=left,                       % Add line numbers on the left side
+  numbersep=5pt,                      % Decrease distance between line numbers and code
+  numberstyle=\tiny,                  % Line number style
+  breaklines=true,                    % Line break automatically
 }

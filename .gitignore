@@ -1,17 +1,17 @@
-# Ignoring all log files and output
+# Ignoring output and logfiles
 
+report.pdf
 *.aux
-*.log
-*.gz
-*.fdb_latexmk
-*.fls
 *.bbl
 *.bcf
 *.blg
+*.fdb_latexmk
+*.fls
 *.lof
+*.log
 *.lot
 *.out
-*.xml
+*.run.xml
+*.synctex.gz
 *.toc
 *.xdv
-report.pdf
