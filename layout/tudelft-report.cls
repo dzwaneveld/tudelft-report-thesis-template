@@ -8,7 +8,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[17-03-2022 v1.5 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[24-04-2022 v1.5.1 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -31,7 +31,7 @@
 \RequirePackage{pdfpages}   % Include PDF documents
 
 \RequirePackage[pdfusetitle,hidelinks]{hyperref} % Extensive support for hypertext
-\RequirePackage[noabbrev,nameinlink,]{cleveref} % Intelligent cross-referencing
+\RequirePackage[noabbrev,nameinlink]{cleveref} % Intelligent cross-referencing
 \RequirePackage{xcolor}     % Driver-independent color extensions
 \RequirePackage{tikz}       % Create PostScript and PDF graphics
 \RequirePackage{xspace}     % Define commands that appear not to eat spaces
@@ -80,6 +80,7 @@
     \setmathsf{Arial}
     \setmathtt{Arial}
 
+    \def\titlestyle{\normalfont} % Customize the font of nearly all titles with this command
     \newfontfamily\largetitlestyle[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
     \newfontfamily\quotefont{Georgia}
 
@@ -87,21 +88,21 @@
     \AtBeginEnvironment{quote}{\quotefont}
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% II. Adjusting the layout of the titles in the text and table of contents %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% II. Adjusting the layout of the titles %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Formatting chapter titles and spacing
 \titleformat{\chapter}[display]
     {\flushright}
     {\fontsize{96}{96}\selectfont\largetitlestyle\thechapter}
     {0pt}
-    {\Huge}
+    {\Huge\titlestyle}
 \titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
 
 %% Formatting section titles and spacing
 \titleformat{\section}
-    {\Large\bfseries}
+    {\Large\titlestyle\bfseries}
     {\thesection.}
     {5pt}
     {}
@@ -109,7 +110,7 @@
 
 %% Formatting subsections titles and spacing
 \titleformat{\subsection}
-    {\large\bfseries}
+    {\large\titlestyle\bfseries}
     {\thesubsection.}
     {5pt}
     {}
@@ -117,7 +118,7 @@
 
 %% Formatting subsubsections titles and spacing
 \titleformat{\subsubsection}
-    {\bfseries}
+    {\titlestyle\bfseries}
     {}
     {0pt}
     {}
@@ -159,7 +160,7 @@
 
     \node[above=0,inner sep=0] at (current page.south) {\includegraphics[width=\paperwidth]{\@coverimage}};
 
-    \node[rotate=90,below right=40mm and 3mm] at (current page.west) {\ifdefvoid{\@affiliation}{}{\color{white}\@affiliation}};
+    \node[rotate=90,below right=40mm and 3mm] at (current page.west) {\ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
 
     \node[above right=10mm] at (current page.south west) {%
         \includegraphics[width=0.35\linewidth]{layout/tudelft/logo-white.pdf}};
@@ -167,7 +168,7 @@
     \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
         \begin{minipage}{0.9\paperwidth}
             \largetitlestyle\fontsize{50}{50}\selectfont\color{title}\@title \\[0.5ex]
-            \color{white}\normalfont\fontsize{22}{22}\selectfont%
+            \color{white}\titlestyle\fontsize{22}{22}\selectfont%
             \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
             \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}
             \largetitlestyle\fontsize{24}{24}\selectfont\ifdefvoid{\@covertable}{\@author}{\@covertable}
