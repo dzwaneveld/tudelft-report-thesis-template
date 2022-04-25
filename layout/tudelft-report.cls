@@ -8,7 +8,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[24-04-2022 v1.5.1 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[25-04-2022 v1.5.2 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -66,7 +66,8 @@
     \RequirePackage{newpxtext}    % Palatino-like font...
     \RequirePackage{newpxmath}    % ...with support for mathematics
 
-    %% Another font can be used as the large title style font if desired
+    %% Another font can be used as the regular and large title style font if desired
+    \def\titlestyle{\normalfont}
     \def\largetitlestyle{\normalfont}
 
     %% Warning when using pdfLaTeX
@@ -80,7 +81,7 @@
     \setmathsf{Arial}
     \setmathtt{Arial}
 
-    \def\titlestyle{\normalfont} % Customize the font of nearly all titles with this command
+    \def\titlestyle{\normalfont} % Customize the regular title style font
     \newfontfamily\largetitlestyle[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
     \newfontfamily\quotefont{Georgia}
 
@@ -125,23 +126,29 @@
 \titlespacing*{\subsubsection}{0pt}{\bigskipamount}{0pt}
 
 %% Reducing the vertical white space between chapters in the table of contents
-\dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\bfseries}{1.5em}{0pc}
+\dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\bfseries}{1.5em}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% III. Adjusting the header and footer %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Change the header and footer of pages where chapters do not start (depends on twoside option)
+%% Changing the header and footer of 'plain' pages
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[C]{\titlestyle\thepage}}
+
+%% Changing the header and footer of 'fancy' pages (based on twoside option)
 \if@twoside
     \fancyhf{}
-    \fancyhead[LE,RO]{\thepage}
-    \fancyhead[RE]{\nouppercase{\leftmark}}
-    \fancyhead[LO]{\nouppercase{\rightmark}}
+    \fancyhead[LE,RO]{\titlestyle\thepage}
+    \fancyhead[RE]{\titlestyle\nouppercase{\leftmark}}
+    \fancyhead[LO]{\titlestyle\nouppercase{\rightmark}}
     \RequirePackage{emptypage} % Remove header and footer on empty pages
 \else
     \fancyhf{}
-    \fancyhead[R]{\thepage}
-    \fancyhead[L]{\nouppercase{\rightmark}}
+    \fancyhead[R]{\titlestyle\thepage}
+    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}
 \fi
 
 \pagestyle{fancy} % Setting the package defaults and the additional changes as the style

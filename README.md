@@ -1,4 +1,4 @@
-# TU Delft - Unofficial Report/Thesis Template (v1.5.1)
+# TU Delft - Unofficial Report/Thesis Template (v1.5.2)
 
 This template aims to simplify and improve the (Xe)LaTeX report template by Delft University of Technology. Some of the main features:
 
