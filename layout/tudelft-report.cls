@@ -1,14 +1,14 @@
-% This template aims to simplify and improve the (Xe)LaTeX template
-% provided by the TU Delft. Original template by TU Delft. Rewritten
-% template by Daan Zwaneveld (https://dzwaneveld.github.io)
+% This template aims to simplify and improve the (Xe)LaTeX template provided
+% by the TU Delft. Original template by TU Delft. Rewritten template by Daan
+% Zwaneveld (https://dzwaneveld.github.io)
 %
-% This template is available under CC BY-NC 4.0. For more information,
-% see https://creativecommons.org/licenses/by-nc/4.0/. No attribution
-% is required in reports/theses created using this template.
+% This template by Daan Zwaneveld is licensed under CC BY-NC 4.0. To view a
+% copy of this license, visit https://creativecommons.org/licenses/by-nc/4.0/.
+% No attribution is required in PDF outputs created using this template.
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[25-04-2022 v1.5.2 TU Delft Report Class]
+\ProvidesClass{layout/tudelft-report}[23-05-2022 v1.5.3 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -31,7 +31,7 @@
 \RequirePackage{pdfpages}   % Include PDF documents
 
 \RequirePackage[pdfusetitle,hidelinks]{hyperref} % Extensive support for hypertext
-\RequirePackage[noabbrev,nameinlink]{cleveref} % Intelligent cross-referencing
+\RequirePackage[noabbrev]{cleveref} % Intelligent cross-referencing
 \RequirePackage{xcolor}     % Driver-independent color extensions
 \RequirePackage{tikz}       % Create PostScript and PDF graphics
 \RequirePackage{xspace}     % Define commands that appear not to eat spaces
