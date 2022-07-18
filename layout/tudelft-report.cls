@@ -73,7 +73,7 @@
     %% Warning when using pdfLaTeX
     \@latex@warning@no@line{You are using pdfLaTeX as the compiler. You can safely ignore this warning or consider changing the compiler to XeLaTeX or LuaLaTeX to adhere to the TU Delft house style.}
 \else
-    %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used
+    %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used (see https://www.tudelft.nl/huisstijl/bouwstenen/typografie).
     \RequirePackage{fontspec} % Advanced font selection
 
     %% Adding Arial as the main font and TU Delft Ultralight and Georgia as supplementary fonts
@@ -82,7 +82,7 @@
     \setmathtt{Arial}
 
     \def\titlestyle{\normalfont} % Customize the regular title style font
-    \newfontfamily\largetitlestyle[Path=layout/tudelft/]{TUDelft-UltraLight.ttf}
+    \newfontfamily\largetitlestyle{Roboto Slab Thin}
     \newfontfamily\quotefont{Georgia}
 
     %% Changing the quote environment to use Georgia
