@@ -81,12 +81,8 @@
     \setmathsf{Arial}
     \setmathtt{Arial}
 
-    \def\titlestyle{\normalfont} % Customize the regular title style font
+    \newfontfamily\titlestyle{Roboto Slab Light}
     \newfontfamily\largetitlestyle{Roboto Slab Thin}
-    \newfontfamily\quotefont{Georgia}
-
-    %% Changing the quote environment to use Georgia
-    \AtBeginEnvironment{quote}{\quotefont}
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
