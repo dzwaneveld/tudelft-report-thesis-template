@@ -76,7 +76,7 @@
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used (see https://www.tudelft.nl/huisstijl/bouwstenen/typografie).
     \RequirePackage{fontspec} % Advanced font selection
 
-    %% Adding Arial as the main font and TU Delft Ultralight and Georgia as supplementary fonts
+    %% Adding Arial as the main font and Roboto Slab (variants) as title fonts
     \setmainfont{Arial}
     \setmathsf{Arial}
     \setmathtt{Arial}
