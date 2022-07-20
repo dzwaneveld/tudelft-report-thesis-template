@@ -6,6 +6,10 @@
 % copy of this license, visit https://creativecommons.org/licenses/by-nc/4.0/.
 % No attribution is required in PDF outputs created using this template.
 
+%% ----------------------------------------------------------------------
+%%    Setting up the class, main packages and basic definitions
+%% ----------------------------------------------------------------------
+
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{layout/tudelft-report}[23-05-2022 v1.5.3 TU Delft Report Class]
@@ -46,7 +50,7 @@
 \RequirePackage{iftex}      % Adds if-else statements to support multiple compilers
 \RequirePackage{datetime}   % Change format of \today
 
-%% Defining commands for the cover image, subtitle, subject, affiliation and table of authors
+%% Defining commands for the subtitle, subject, affiliation, cover image and table of authors
 \newcommand*\subtitle[1]{\def\@subtitle{#1}}
 \newcommand*\subject[1]{\def\@subject{#1}}
 \newcommand*\affiliation[1]{\def\@affiliation{#1}}
@@ -56,9 +60,9 @@
 %% Scaling the margins to be slightly smaller than default (.7)
 \geometry{a4paper,hscale=0.75,vscale=0.8}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% I. Loading the fonts %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ----------------------------------------------------------------------
+%%    Setting up the fonts
+%% ----------------------------------------------------------------------
 
 \ifPDFTeX
     %% pdfLaTeX is available for compatibility and uses a Paletino-like font
@@ -85,9 +89,9 @@
     \newfontfamily\largetitlestyle{Roboto Slab Thin}
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% II. Adjusting the layout of the titles %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ----------------------------------------------------------------------
+%%    Formatting the titles and table of contents
+%% ----------------------------------------------------------------------
 
 %% Formatting chapter titles and spacing
 \titleformat{\chapter}[display]
@@ -124,9 +128,9 @@
 %% Reducing the vertical white space between chapters in the table of contents
 \dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\bfseries}{1.5em}{0pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% III. Adjusting the header and footer %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ----------------------------------------------------------------------
+%%    Formatting the header and footer
+%% ----------------------------------------------------------------------
 
 %% Changing the header and footer of 'plain' pages
 \fancypagestyle{plain}{%
@@ -149,9 +153,9 @@
 
 \pagestyle{fancy} % Setting the package defaults and the additional changes as the style
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% IV. Creating the cover page %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ----------------------------------------------------------------------
+%%    Setting up the \makecover command for the cover page
+%% ----------------------------------------------------------------------
 
 \newcommand*\makecover{
     %% Use the Tikz library positioning and clear the page header and footer
@@ -181,9 +185,9 @@
     \newpage
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% V. Setting up listings %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ----------------------------------------------------------------------
+%%    Setting up listings
+%% ----------------------------------------------------------------------
 
 \RequirePackage{listings} % Typeset source code listings
 
