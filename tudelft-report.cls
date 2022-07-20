@@ -166,7 +166,7 @@
     \node[rotate=90,below right=40mm and 3mm] at (current page.west) {\ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
 
     \node[above right=10mm] at (current page.south west) {%
-        \includegraphics[width=0.35\linewidth]{layout/tudelft/logo-white.pdf}};
+        \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}};
 
     \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
         \begin{minipage}{0.9\paperwidth}
