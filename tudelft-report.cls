@@ -162,24 +162,35 @@
     \usetikzlibrary{positioning}
     \thispagestyle{empty}
 
-    %% Constructing the cover page (cover image, name of university, logo and title text respectively)
+    %% Constructing the cover page with Tikz
     \begin{tikzpicture}[overlay,remember picture]
 
-    \node[above=0,inner sep=0] at (current page.south) {\includegraphics[width=\paperwidth]{\@coverimage}};
+        %% Adding the cover image
+        \node[above=0,inner sep=0] at (current page.south) {%
+            \includegraphics[width=\paperwidth]{\@coverimage}};
 
-    \node[rotate=90,below right=40mm and 3mm] at (current page.west) {\ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
+        %% Adding the affiliation on the left
+        \node[rotate=90,below right=40mm and 3mm] at (current page.west) {%
+            \ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
 
-    \node[above right=10mm] at (current page.south west) {%
-        \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}};
+        %% Adding the logo in the bottom left
+        \node[above right=10mm] at (current page.south west) {%
+            \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}};
 
-    \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
-        \begin{minipage}{0.9\paperwidth}
-            \largetitlestyle\fontsize{50}{50}\selectfont\color{title}\@title \\[0.5ex]
-            \color{white}\titlestyle\fontsize{22}{22}\selectfont%
-            \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
-            \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}
-            \largetitlestyle\fontsize{24}{24}\selectfont\ifdefvoid{\@covertable}{\@author}{\@covertable}
-        \end{minipage}};
+        %% Adding the banner with the title, subtitle, subject and author(s)
+        \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
+            \begin{minipage}{0.9\paperwidth}
+                %% Formatting and adding the title
+                {\color{title}\largetitlestyle\fontsize{50}{50}\selectfont%
+                    \@title} \\[0.5ex]
+                %% Formatting and adding (optional) subtitle and subject
+                {\color{white}\titlestyle\fontsize{22}{22}\selectfont%
+                    \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
+                    \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}}
+                %% Formatting and adding author / table of authors
+                {\color{white}\largetitlestyle\fontsize{24}{24}\selectfont%
+                    \ifdefvoid{\@covertable}{\@author}{\@covertable}}
+            \end{minipage}};
 
     \end{tikzpicture}
     \newpage
