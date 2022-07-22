@@ -50,14 +50,14 @@
 \RequirePackage{iftex}      % Adds if-else statements to support multiple compilers
 \RequirePackage{datetime}   % Change format of \today
 
-%% Defining commands for the subtitle, subject, affiliation, cover image and table of authors
+%% Establish commands for the subtitle, subject, affiliation, cover image and table of authors
 \newcommand*{\subtitle}[1]{\def\@subtitle{#1}}
 \newcommand*{\subject}[1]{\def\@subject{#1}}
 \newcommand*{\affiliation}[1]{\def\@affiliation{#1}}
 \newcommand*{\coverimage}[1]{\def\@coverimage{#1}}
 \newcommand*{\covertable}[1]{\def\@covertable{#1}}
 
-%% Scaling the margins to be slightly smaller than default (.7)
+%% Scale the margins to be slightly smaller than default (.7)
 \geometry{a4paper,hscale=0.75,vscale=0.8}
 
 %% ----------------------------------------------------------------------
@@ -65,8 +65,8 @@
 %% ----------------------------------------------------------------------
 
 \ifPDFTeX
-    %% With pdfLaTeX, Paletino is the main font and Roboto Slab (variants) are title fonts
-    \RequirePackage[T1]{fontenc}  % Selecting T1 font encoding
+    %% With pdfLaTeX, use Paletino as the main font and Roboto Slab as title fonts
+    \RequirePackage[T1]{fontenc}  % Select T1 font encoding
     \RequirePackage{newpxtext}    % Palatino-like font...
     \RequirePackage{newpxmath}    % ...with support for mathematics
 
@@ -76,7 +76,7 @@
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used (see https://www.tudelft.nl/huisstijl/bouwstenen/typografie).
     \RequirePackage{fontspec} % Advanced font selection
 
-    %% Adding Arial as the main font and Roboto Slab (variants) as title fonts
+    %% Use Arial as the main font and Roboto Slab as title fonts
     \setmainfont{Arial}
     \setmathsf{Arial}
     \setmathtt{Arial}
@@ -89,7 +89,7 @@
 %%    Formatting the titles and table of contents
 %% ----------------------------------------------------------------------
 
-%% Formatting chapter titles and spacing
+%% Format the chapter titles and spacing
 \titleformat{\chapter}[display]
     {\flushright}
     {\fontsize{96}{96}\selectfont\largetitlestyle\thechapter}
@@ -97,7 +97,7 @@
     {\Huge\titlestyle}
 \titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
 
-%% Formatting section titles and spacing
+%% Format the section titles and spacing
 \titleformat{\section}
     {\Large\titlestyle\bfseries}
     {\thesection.}
@@ -105,7 +105,7 @@
     {}
 \titlespacing*{\section}{0pt}{\baselineskip}{0pt}
 
-%% Formatting subsections titles and spacing
+%% Format the subsections titles and spacing
 \titleformat{\subsection}
     {\large\titlestyle\bfseries}
     {\thesubsection.}
@@ -113,7 +113,7 @@
     {}
 \titlespacing*{\subsection}{0pt}{\baselineskip}{0pt}
 
-%% Formatting subsubsections titles and spacing
+%% Format the subsubsections titles and spacing
 \titleformat{\subsubsection}
     {\titlestyle\bfseries}
     {}
@@ -121,20 +121,20 @@
     {}
 \titlespacing*{\subsubsection}{0pt}{\bigskipamount}{0pt}
 
-%% Reducing the vertical white space between chapters in the table of contents
+%% Reduce the vertical white space between chapters in the table of contents
 \dottedcontents{chapter}[1.5em]{\vspace{0.5\baselineskip}\bfseries}{1.5em}{0pt}
 
 %% ----------------------------------------------------------------------
 %%    Formatting the header and footer
 %% ----------------------------------------------------------------------
 
-%% Changing the header and footer of 'plain' pages
+%% Format the header and footer of 'plain' pages
 \fancypagestyle{plain}{%
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
     \fancyfoot[C]{\titlestyle\thepage}}
 
-%% Changing the header and footer of 'fancy' pages (based on twoside option)
+%% Format the header and footer of 'fancy' pages (based on twoside option)
 \if@twoside
     \fancyhf{}
     \fancyhead[LE,RO]{\titlestyle\thepage}
@@ -147,7 +147,7 @@
     \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}
 \fi
 
-\pagestyle{fancy} % Setting the package defaults and the additional changes as the style
+\pagestyle{fancy} % Set the package defaults and the additional changes as the style
 
 %% ----------------------------------------------------------------------
 %%    Setting up the \makecover command for the cover page
@@ -158,32 +158,32 @@
     \usetikzlibrary{positioning}
     \thispagestyle{empty}
 
-    %% Constructing the cover page with Tikz
+    %% Construct the cover page with Tikz
     \begin{tikzpicture}[overlay,remember picture]
 
-        %% Adding the cover image
+        %% Add the cover image
         \node[above=0,inner sep=0] at (current page.south) {%
             \includegraphics[width=\paperwidth]{\@coverimage}};
 
-        %% Adding the affiliation on the left
+        %% Add the affiliation on the left
         \node[rotate=90,below right=40mm and 3mm] at (current page.west) {%
             \ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
 
-        %% Adding the logo in the bottom left
+        %% Add the logo in the bottom left
         \node[above right=10mm] at (current page.south west) {%
             \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}};
 
-        %% Adding the banner with the title, subtitle, subject and author(s)
+        %% Add the banner with the title, subtitle, subject and author(s)
         \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
             \begin{minipage}{0.9\paperwidth}
-                %% Formatting and adding the title
+                %% Format and add the title
                 \largetitlestyle\fontsize{50}{50}\selectfont\color{title}%
                     \@title \\[0.5ex]
-                %% Formatting and adding (optional) subtitle and subject
+                %% Format and add (optional) subtitle and subject
                 \color{white}\titlestyle\fontsize{22}{22}\selectfont%
                     \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
                     \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}
-                %% Formatting and adding author / table of authors
+                %% Format and add author or table of authors
                 \largetitlestyle\fontsize{24}{24}\selectfont%
                     \ifdefvoid{\@covertable}{\@author}{\@covertable}
             \end{minipage}};

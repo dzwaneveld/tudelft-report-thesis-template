@@ -1,6 +1,6 @@
 \documentclass{tudelft-report}
 
-%% Setting up the bibliography
+%% Set up the bibliography
 \usepackage{biblatex}
 \addbibresource{report.bib}
 
@@ -8,24 +8,23 @@
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% Begin of document %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ----------------------------------------------------------------------
+%%    Begin of document + Frontmatter (Roman page numbering)
+%% ----------------------------------------------------------------------
 
 \begin{document}
 
-%% Roman page numbering
 \frontmatter
 
-%% Defining the main parameters
+%% Define the main parameters
 \title{A Title to the Report}
 \subtitle{A Catchy Optional Subtitle \\ that Grabs the Attention}
 \author{Author}
-\subject{AB1234: Optional Course Name}
-\affiliation{Delft University of Technology}
 
+\subject{AB1234: Optional Course Name} % Cover only
+\affiliation{Delft University of Technology} % Cover only
 \coverimage{figures/cover.jpg} % Aspect ratio of 2:3 (portrait) recommended
-\definecolor{title}{HTML}{4884d6} % Color for title
+\definecolor{title}{HTML}{4884d6} % Color for cover title
 
 \makecover
 
@@ -39,7 +38,10 @@
 
 \input{frontmatter/nomenclature}
 
-%% Arabic page numbering
+%% ----------------------------------------------------------------------
+%%    Mainmatter (Arabic page numbering)
+%% ----------------------------------------------------------------------
+
 \mainmatter
 
 \input{mainmatter/introduction}
@@ -58,7 +60,10 @@
 %% Add bibliography
 \printbibliography[heading=bibintoc,title=References]
 
-%% Letters for chapters
+%% ----------------------------------------------------------------------
+%%    Appendix (Letters for chapters)
+%% ----------------------------------------------------------------------
+
 \appendix
 
 \input{appendix/appendix-a}
