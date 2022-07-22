@@ -12,7 +12,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{layout/tudelft-report}[23-05-2022 v1.5.3 TU Delft Report Class]
+\ProvidesClass{tudelft-report}[23-05-2022 v1.5.3 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
@@ -181,15 +181,15 @@
         \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
             \begin{minipage}{0.9\paperwidth}
                 %% Formatting and adding the title
-                {\color{title}\largetitlestyle\fontsize{50}{50}\selectfont%
-                    \@title} \\[0.5ex]
+                \largetitlestyle\fontsize{50}{50}\selectfont\color{title}%
+                    \@title \\[0.5ex]
                 %% Formatting and adding (optional) subtitle and subject
-                {\color{white}\titlestyle\fontsize{22}{22}\selectfont%
+                \color{white}\titlestyle\fontsize{22}{22}\selectfont%
                     \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
-                    \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}}
+                    \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}
                 %% Formatting and adding author / table of authors
-                {\color{white}\largetitlestyle\fontsize{24}{24}\selectfont%
-                    \ifdefvoid{\@covertable}{\@author}{\@covertable}}
+                \largetitlestyle\fontsize{24}{24}\selectfont%
+                    \ifdefvoid{\@covertable}{\@author}{\@covertable}
             \end{minipage}};
 
     \end{tikzpicture}
