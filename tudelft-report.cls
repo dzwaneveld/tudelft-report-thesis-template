@@ -51,11 +51,11 @@
 \RequirePackage{datetime}   % Change format of \today
 
 %% Defining commands for the subtitle, subject, affiliation, cover image and table of authors
-\newcommand*\subtitle[1]{\def\@subtitle{#1}}
-\newcommand*\subject[1]{\def\@subject{#1}}
-\newcommand*\affiliation[1]{\def\@affiliation{#1}}
-\newcommand*\coverimage[1]{\def\@coverimage{#1}}
-\newcommand*\covertable[1]{\def\@covertable{#1}}
+\newcommand*{\subtitle}[1]{\def\@subtitle{#1}}
+\newcommand*{\subject}[1]{\def\@subject{#1}}
+\newcommand*{\affiliation}[1]{\def\@affiliation{#1}}
+\newcommand*{\coverimage}[1]{\def\@coverimage{#1}}
+\newcommand*{\covertable}[1]{\def\@covertable{#1}}
 
 %% Scaling the margins to be slightly smaller than default (.7)
 \geometry{a4paper,hscale=0.75,vscale=0.8}
