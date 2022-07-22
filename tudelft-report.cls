@@ -65,17 +65,13 @@
 %% ----------------------------------------------------------------------
 
 \ifPDFTeX
-    %% pdfLaTeX is available for compatibility and uses a Paletino-like font
+    %% With pdfLaTeX, Paletino is the main font and Roboto Slab (variants) are title fonts
     \RequirePackage[T1]{fontenc}  % Selecting T1 font encoding
     \RequirePackage{newpxtext}    % Palatino-like font...
     \RequirePackage{newpxmath}    % ...with support for mathematics
 
-    %% Another font can be used as the regular and large title style font if desired
-    \def\titlestyle{\normalfont}
-    \def\largetitlestyle{\normalfont}
-
-    %% Warning when using pdfLaTeX
-    \@latex@warning@no@line{You are using pdfLaTeX as the compiler. You can safely ignore this warning or consider changing the compiler to XeLaTeX or LuaLaTeX to adhere to the TU Delft house style.}
+    \newcommand{\titlestyle}{\fontfamily{RobotoSlab-TLF}\fontseries{light}\selectfont}
+    \newcommand{\largetitlestyle}{\fontfamily{RobotoSlab-TLF}\fontseries{thin}\selectfont}
 \else
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used (see https://www.tudelft.nl/huisstijl/bouwstenen/typografie).
     \RequirePackage{fontspec} % Advanced font selection
