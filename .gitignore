@@ -1,6 +1,7 @@
 # Ignoring output and logfiles
 
 report.pdf
+web
 *.aux
 *.bbl
 *.bcf

@@ -177,7 +177,7 @@
         \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
             \begin{minipage}{0.9\paperwidth}
                 %% Format and add the title
-                \raggedright\largetitlestyle\fontsize{50}{50}\selectfont\color{title}%
+                \color{title}\raggedright\largetitlestyle\fontsize{50}{50}\selectfont%
                     \@title \\[0.5ex]
                 %% Format and add (optional) subtitle and subject
                 \color{white}\titlestyle\fontsize{22}{22}\selectfont%
