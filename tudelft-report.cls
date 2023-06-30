@@ -12,7 +12,7 @@
 
 %% Class is based on the default book class and options will be passed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{tudelft-report}[23-07-2022 v1.6 TU Delft Report Class]
+\ProvidesClass{tudelft-report}[30-06-2023 v1.7 TU Delft Report Class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
