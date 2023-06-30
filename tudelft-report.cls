@@ -74,7 +74,7 @@
     \newcommand{\largetitlestyle}{\fontfamily{RobotoSlab-TLF}\fontseries{thin}\selectfont}
 \else
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used (see https://www.tudelft.nl/huisstijl/bouwstenen/typografie).
-    \RequirePackage{fontspec} % Advanced font selection
+    \RequirePackage[no-math]{fontspec} % Advanced font selection
 
     %% Use Arial as the main font and Roboto Slab as title fonts
     \setmainfont{Arial}
